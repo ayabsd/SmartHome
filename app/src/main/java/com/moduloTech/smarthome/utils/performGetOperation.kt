@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import androidx.lifecycle.map
 import kotlinx.coroutines.Dispatchers
-
 fun <T, A> performGetOperation(databaseQuery: () -> LiveData<T>,
                                networkCall: suspend () -> Resource<A>,
                                saveCallResult: suspend (A) -> Unit): LiveData<Resource<T>> =
