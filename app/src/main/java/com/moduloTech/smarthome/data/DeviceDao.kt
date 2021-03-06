@@ -5,16 +5,15 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.moduloTech.smarthome.data.model.ApiResponse
+import com.moduloTech.smarthome.data.model.ApiDevices
 
 @Dao
 interface Dao {
-
     @Query("SELECT * FROM device")
-    fun getAllDevices() : LiveData<List<ApiResponse>>
+    fun getAllDevices() : LiveData<List<ApiDevices>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllDevices(characters: List<ApiResponse>)
+    suspend fun insertAllDevices(devices: List<ApiDevices>)
 
 
 }
