@@ -10,7 +10,7 @@
         android:layout_height="wrap_content">
 
         <ImageButton
-            android:id="@+id/delete_bt"
+            android:id="@+id/delete_bt_roller"
             style="@style/Theme.SmartHome.btn_close"
             android:background="@color/red_clear"
             android:src="@android:drawable/ic_menu_close_clear_cancel"
@@ -25,7 +25,7 @@
             android:theme="@style/Theme.SmartHome.Text"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/delete_bt" />
+            app:layout_constraintTop_toBottomOf="@id/delete_bt_roller" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/device_position_tv"

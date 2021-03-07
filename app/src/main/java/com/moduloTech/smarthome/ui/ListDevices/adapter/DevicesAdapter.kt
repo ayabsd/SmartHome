@@ -10,11 +10,15 @@ import com.moduloTech.smarthome.ui.ListDevices.holder.HeaterViewHolder
 import com.moduloTech.smarthome.ui.ListDevices.holder.LightViewHolder
 import com.moduloTech.smarthome.ui.ListDevices.holder.RollerShutterViewHolder
 
-
+interface OnItemClickListener {
+    fun onItemClick(device: Device?)
+}
 class DevicesAdapter(
 ) :
     RecyclerView.Adapter<BaseViewHolder<*>>() {
     private val items = ArrayList<Device>()
+    private lateinit var listener : OnItemClickListener
+
 
     companion object {
         private const val TYPE_LIGHT = 0
@@ -58,13 +62,17 @@ class DevicesAdapter(
         this.items.addAll(items)
         notifyDataSetChanged()
     }
+    fun setListener(listener : OnItemClickListener) {
+        this.listener = listener
+    }
 
     override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
         val element = items[position]
         when (holder) {
-            is LightViewHolder -> holder.bind(element as Device.Light)
-            is HeaterViewHolder -> holder.bind(element as Device.Heater)
-            is RollerShutterViewHolder -> holder.bind(element as Device.RollerShutter)
+
+            is LightViewHolder -> holder.bind(element as Device.Light , listener)
+            is HeaterViewHolder -> holder.bind(element as Device.Heater , listener)
+            is RollerShutterViewHolder -> holder.bind(element as Device.RollerShutter, listener)
             else -> throw IllegalArgumentException()
         }
     }

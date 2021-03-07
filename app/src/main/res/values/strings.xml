@@ -3,6 +3,10 @@
     <string name="app_Light">Light</string>
     <string name="app_roller">Roller Shutter</string>
     <string name="app_heater">Heater</string>
+    <string name="app_all">All</string>
+
+
+
 
 
 </resources>

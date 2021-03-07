@@ -13,7 +13,6 @@ android {
         enabled = true
     }
 
-
     defaultConfig {
         applicationId "com.moduloTech.smarthome"
         minSdkVersion 16

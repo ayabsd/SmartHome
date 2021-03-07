@@ -3,22 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/all_action"
+        android:title="@string/app_all"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/roller_shutter_action"
-        android:title="Roller Shutter"
+        android:menuCategory="secondary"
+        android:title="@string/app_roller"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/light_action"
         android:menuCategory="secondary"
-        android:title="Light"
+        android:title="@string/app_Light"
         app:showAsAction="never" />
-
 
     <item
         android:id="@+id/heater_action"
         android:menuCategory="secondary"
-        android:title="Heater"
+        android:title="@string/app_heater"
         app:showAsAction="never" />
-
 
 </menu>
