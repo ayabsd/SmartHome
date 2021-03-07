@@ -13,8 +13,13 @@ class DeviceRespository @Inject constructor(
 ) {
 
     fun getDevices() = performGetOperation(
-        databaseQuery = { localDataSource.getAllDevices() },
+        databaseQuery = { localDataSource.getAlldevicesOrderedByType() },
         networkCall = { remoteDataSource.getAllDevices() },
         saveCallResult = { localDataSource.insertAllDevices(it.devices) }
     )
+
+
+    fun getDevicesByType(){
+        localDataSource.getAllDevices()
+    }
 }

@@ -8,7 +8,7 @@ data class ApiDevices (
     @PrimaryKey
     val id: Int,
     val deviceName: String,
-    val productType: String?,
+    val productType: String,
     val intensity: String?,
     val mode: String?,
     val position: String?,

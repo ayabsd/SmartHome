@@ -15,5 +15,9 @@ interface Dao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllDevices(devices: List<ApiDevices>)
 
+    @Query("SELECT * FROM device ORDER BY productType ASC")
+    fun getAlldevicesOrderedByType():  LiveData<List<ApiDevices>>
 
+    @Query("SELECT * FROM device WHERE productType=:type")
+    fun getDevicesByType(type: String): LiveData<ApiDevices>
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/roller_shutter_action"
+        android:title="Roller Shutter"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/light_action"
+        android:menuCategory="secondary"
+        android:title="Light"
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/heater_action"
+        android:menuCategory="secondary"
+        android:title="Heater"
+        app:showAsAction="never" />
+
+
+</menu>

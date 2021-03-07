@@ -7,10 +7,9 @@
 
     <fragment
         android:id="@+id/devices_fragment"
-        android:name="com.moduloTech.smarthome.ui.ListDevices.ListDevicesFragment"
+        android:name="com.moduloTech.smarthome.ui.ListDevices.view.ListDevicesFragment"
         android:label="Devices"
         tools:layout="@layout/fragment_list_devices" >
-
     </fragment>
 
 </navigation>
