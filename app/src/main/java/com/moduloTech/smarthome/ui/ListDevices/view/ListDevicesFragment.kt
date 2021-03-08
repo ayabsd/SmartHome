@@ -1,6 +1,5 @@
 package com.moduloTech.smarthome.ui.ListDevices.view
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
 import android.view.View
@@ -10,12 +9,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.moduloTech.smarthome.R
-import com.moduloTech.smarthome.data.model.ApiDevices
 import com.moduloTech.smarthome.data.model.Device
 import com.moduloTech.smarthome.databinding.FragmentListDevicesBinding
-import com.moduloTech.smarthome.ui.ListDevices.viewmodel.ListDevicesViewModel
 import com.moduloTech.smarthome.ui.ListDevices.adapter.DevicesAdapter
 import com.moduloTech.smarthome.ui.ListDevices.adapter.OnItemClickListener
+import com.moduloTech.smarthome.ui.ListDevices.viewmodel.ListDevicesViewModel
 import com.moduloTech.smarthome.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -88,16 +86,18 @@ class ListDevicesFragment : Fragment() ,  OnItemClickListener {
         viewModel.devicesByType.observe(viewLifecycleOwner, Observer { devices ->
             devices?.let {
                 if (!devices.isNullOrEmpty()) adapter.setItems(ArrayList(convertResponse(devices)))
+                else  adapter.clearAll()
             }
         })
 
     }
 
-    override fun onItemClick(device: Device?) {
-        Toast.makeText(activity, device?.name , Toast.LENGTH_LONG).show()
+    override fun onItemClick(device: Device? , position : Int) {
         if (device != null) {
             viewModel.deleteDevice(device)
-            adapter.notifyDataSetChanged()
+            adapter.notifyItemRemoved(position)
+            adapter.remove(position)
+
         }
 
     }

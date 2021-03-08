@@ -1,20 +1,18 @@
 package com.moduloTech.smarthome.ui.ListDevices.viewmodel
 
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.*
-import com.moduloTech.smarthome.data.model.ApiDevices
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
+import androidx.lifecycle.ViewModel
 import com.moduloTech.smarthome.data.model.Device
 import com.moduloTech.smarthome.data.repository.DeviceRespository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 
 class ListDevicesViewModel @ViewModelInject constructor(
-    var repository: DeviceRespository
+    private var repository: DeviceRespository
 ) : ViewModel() {
 
-    val typeDevice = MutableLiveData<String>()
+    private val typeDevice = MutableLiveData<String>()
     val devices = repository.getDevices()
 
     val devicesByType = Transformations.switchMap(typeDevice) { type ->
@@ -26,13 +24,7 @@ class ListDevicesViewModel @ViewModelInject constructor(
     }
 
     fun deleteDevice(device: Device) {
-
-        GlobalScope.launch(Dispatchers.IO) {
-            repository.deleteDevice(device)
-
-        }
-
-
+        repository.deleteDevice(device)
 
     }
 

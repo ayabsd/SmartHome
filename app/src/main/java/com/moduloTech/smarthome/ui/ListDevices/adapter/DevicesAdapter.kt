@@ -11,14 +11,13 @@ import com.moduloTech.smarthome.ui.ListDevices.holder.LightViewHolder
 import com.moduloTech.smarthome.ui.ListDevices.holder.RollerShutterViewHolder
 
 interface OnItemClickListener {
-    fun onItemClick(device: Device?)
+    fun onItemClick(device: Device?, position: Int)
 }
-class DevicesAdapter(
-) :
+
+class DevicesAdapter :
     RecyclerView.Adapter<BaseViewHolder<*>>() {
     private val items = ArrayList<Device>()
-    private lateinit var listener : OnItemClickListener
-
+    private lateinit var listener: OnItemClickListener
 
     companion object {
         private const val TYPE_LIGHT = 0
@@ -62,30 +61,52 @@ class DevicesAdapter(
         this.items.addAll(items)
         notifyDataSetChanged()
     }
-    fun setListener(listener : OnItemClickListener) {
+
+    fun setListener(listener: OnItemClickListener) {
         this.listener = listener
     }
+
+    fun remove(position: Int) {
+        items.removeAt(position)
+        notifyDataSetChanged()
+    }
+
+    fun clearAll() {
+        this.items.clear()
+        notifyDataSetChanged()
+    }
+
 
     override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
         val element = items[position]
         when (holder) {
-
-            is LightViewHolder -> holder.bind(element as Device.Light , listener)
-            is HeaterViewHolder -> holder.bind(element as Device.Heater , listener)
-            is RollerShutterViewHolder -> holder.bind(element as Device.RollerShutter, listener)
+            is LightViewHolder -> holder.bind(element as Device.Light, listener, position)
+            is HeaterViewHolder -> holder.bind(element as Device.Heater, listener, position)
+            is RollerShutterViewHolder -> holder.bind(
+                element as Device.RollerShutter,
+                listener,
+                position
+            )
             else -> throw IllegalArgumentException()
         }
     }
 
     override fun getItemViewType(position: Int): Int {
-        val comparable = items[position]
-        return when (comparable) {
+        return when (items[position]) {
             is Device.Light -> TYPE_LIGHT
             is Device.Heater -> TYPE_Heater
             is Device.RollerShutter -> TYPE_ROLLER
-            else -> throw IllegalArgumentException("Invalid type of data " + position)
+            else -> throw IllegalArgumentException("Invalid type of data $position")
         }
     }
+
+
+
+
+
+
+
+
 
 
 }

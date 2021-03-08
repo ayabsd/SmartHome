@@ -22,9 +22,9 @@ class DeviceRespository @Inject constructor(
 
 
     fun getAllDevicesByType(type: String): LiveData<List<ApiDevices>> {
-        when (type) {
-            "All" -> return localDataSource.getAlldevicesOrderedByType()
-            else -> return localDataSource.getDevicesByType(type)
+        return when (type) {
+            "All" -> localDataSource.getAlldevicesOrderedByType()
+            else -> localDataSource.getDevicesByType(type)
         }
 
 
