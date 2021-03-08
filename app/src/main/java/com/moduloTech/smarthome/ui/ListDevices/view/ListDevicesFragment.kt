@@ -7,13 +7,17 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.moduloTech.smarthome.R
 import com.moduloTech.smarthome.data.local.DataManager
 import com.moduloTech.smarthome.data.model.Device
 import com.moduloTech.smarthome.databinding.FragmentListDevicesBinding
 import com.moduloTech.smarthome.ui.ListDevices.adapter.DevicesAdapter
-import com.moduloTech.smarthome.ui.ListDevices.adapter.OnItemClickListener
+import com.moduloTech.smarthome.ui.ListDevices.adapter.OnClickListenner
+import com.moduloTech.smarthome.ui.ListDevices.holder.HeaterViewHolder
+import com.moduloTech.smarthome.ui.ListDevices.holder.LightViewHolder
+import com.moduloTech.smarthome.ui.ListDevices.holder.RollerShutterViewHolder
 import com.moduloTech.smarthome.ui.ListDevices.viewmodel.ListDevicesViewModel
 import com.moduloTech.smarthome.utils.*
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,9 +27,8 @@ import java.util.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class ListDevicesFragment : Fragment(), OnItemClickListener {
-    @Inject
-    lateinit var dataManager: DataManager
+class ListDevicesFragment : Fragment(), OnClickListenner {
+
 
     private lateinit var binding: FragmentListDevicesBinding
     private val viewModel: ListDevicesViewModel by viewModels()
@@ -36,8 +39,8 @@ class ListDevicesFragment : Fragment(), OnItemClickListener {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         binding = FragmentListDevicesBinding.inflate(inflater, container, false)
         return binding.root
@@ -65,8 +68,8 @@ class ListDevicesFragment : Fragment(), OnItemClickListener {
                     if (!it.data.isNullOrEmpty()) {
 
                         adapter.filterDevices(
-                            adapter.getFilterType(),
-                            ArrayList(convertResponse(it.data))
+                                adapter.getFilterType(),
+                                ArrayList(convertResponse(it.data))
                         )
 
 
@@ -98,12 +101,33 @@ class ListDevicesFragment : Fragment(), OnItemClickListener {
     }
 
 
-    override fun onItemClick(device: Device?, position: Int) {
+    override fun onButtonDeleteClick(device: Device?, position: Int) {
         if (device != null) {
             viewModel.deleteDevice(device)
             adapter.removeDevice(device)
 
         }
+    }
+
+    override fun onDeviceClick(device: Device?, view: View) {
+
+        when (device) {
+            is Device.Light -> Navigation.findNavController(view).navigate(
+                    ListDevicesFragmentDirections
+                            .actionToLightDevice(device!!))
+
+            is Device.RollerShutter -> Navigation.findNavController(view).navigate(
+                    ListDevicesFragmentDirections
+                            .actionToRollerDevice(device!!))
+
+            is Device.Heater -> Navigation.findNavController(view).navigate(
+                    ListDevicesFragmentDirections
+                            .actionToHeaterDevice(device!!))
+
+
+            else -> throw IllegalArgumentException()
+        }
+
     }
 
     override fun onPause() {

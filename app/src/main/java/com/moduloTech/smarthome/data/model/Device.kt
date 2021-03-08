@@ -1,26 +1,29 @@
 package com.moduloTech.smarthome.data.model
 
-sealed class Device {
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+import java.io.Serializable
+sealed class Device : Parcelable {
     abstract val id: Int
     abstract val name: String
 
-    data class Light(
+    @Parcelize  data class Light(
         override val id: Int,
         override val name: String,
         val intensity: String,
         val mode: String
-    ) : Device()
+    ) : Device(),Parcelable
 
-    data class Heater(
+    @Parcelize  data class Heater(
         override val id: Int,
         override val name: String,
         val mode: String,
         val temperature: String
-    ) : Device()
+    ) : Device() ,Parcelable
 
-    data class RollerShutter(
+    @Parcelize  data class RollerShutter(
         override val id: Int,
         override val name: String,
         val position: String
-    ) : Device()
+    ) : Device(),Parcelable
 }

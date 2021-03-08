@@ -8,8 +8,51 @@
     <fragment
         android:id="@+id/devices_fragment"
         android:name="com.moduloTech.smarthome.ui.ListDevices.view.ListDevicesFragment"
-        android:label="Devices"
-        tools:layout="@layout/fragment_list_devices" >
+        android:label="@string/app_devices"
+        tools:layout="@layout/fragment_list_devices">
+        <action
+            android:id="@+id/action_to_roller_device"
+            app:destination="@id/device_details_roller" />
+
+        <action
+            android:id="@+id/action_to_heater_device"
+            app:destination="@id/device_details_heater" />
+        <action
+            android:id="@+id/action_to_light_device"
+            app:destination="@id/device_details_light" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/device_details_roller"
+        android:name="com.moduloTech.smarthome.ui.DetailsDevice.DetailsDeviceRollerFragment"
+        android:label="@string/app_roller"
+        tools:layout="@layout/details_device_roller_fragment">
+
+        <argument
+            android:name="arg_from_device_list_fragment"
+            app:argType="com.moduloTech.smarthome.data.model.Device" />
+    </fragment>
+    <fragment
+        android:id="@+id/device_details_heater"
+        android:name="com.moduloTech.smarthome.ui.DetailsDevice.DetailsDeviceHeaterFragment"
+        android:label="@string/app_heater"
+        tools:layout="@layout/details_device_light_fragment">
+
+        <argument
+            android:name="arg_from_device_list_fragment"
+            app:argType="com.moduloTech.smarthome.data.model.Device" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/device_details_light"
+        android:name="com.moduloTech.smarthome.ui.DetailsDevice.DetailsDeviceLightFragment"
+        android:label="@string/app_Light"
+        tools:layout="@layout/details_device_light_fragment">
+
+        <argument
+            android:name="arg_from_device_list_fragment"
+            app:argType="com.moduloTech.smarthome.data.model.Device" />
     </fragment>
 
 </navigation>

@@ -21,14 +21,6 @@ class DeviceRespository @Inject constructor(
     )
 
 
-    fun getAllDevicesByType(type: String): LiveData<List<ApiDevices>> {
-        return when (type) {
-            "All" -> localDataSource.getAlldevicesOrderedByType()
-            else -> localDataSource.getDevicesByType(type)
-        }
-
-    }
-
     fun deleteDevice(device: Device){
        localDataSource.deleteById(device.id)
     }

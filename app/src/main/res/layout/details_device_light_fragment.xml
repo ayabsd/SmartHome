@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.DetailsDevice.DetailsDeviceLightFragment">
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Theme.SmartHome.card.details"
+        android:layout_gravity="center_horizontal|center_vertical"
+        app:cardBackgroundColor="@color/blue_clear">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/device_name_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Theme.SmartHome.Text.title"
+                android:text="hshshshh"
+                app:layout_constraintBottom_toTopOf="@id/device_name_tv"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/device_light_silder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:valueFrom="0.0"
+                android:valueTo="100.0"
+                android:value="20.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/device_name_tv" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/device_intensity_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.SmartHome.Text.content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/device_light_silder"
+
+                />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/state_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:enabled="true"
+                android:textOn="ON"
+                android:textOff="OFf"
+                app:layout_constraintTop_toBottomOf="@id/device_intensity_tv" />
+
+            <com.google.android.material.button.MaterialButton
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/state_switch"
+                android:layout_width="wrap_content"
+                android:text="save changes"
+                android:layout_height="wrap_content">
+
+            </com.google.android.material.button.MaterialButton>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</FrameLayout>

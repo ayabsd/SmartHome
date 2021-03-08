@@ -1,6 +1,7 @@
 package com.moduloTech.smarthome.ui.ListDevices.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.moduloTech.smarthome.R
@@ -14,8 +15,9 @@ import com.moduloTech.smarthome.utils.TYPE_HEATER
 import com.moduloTech.smarthome.utils.TYPE_LIGHT
 import com.moduloTech.smarthome.utils.TYPE_ROLLER
 
-interface OnItemClickListener {
-    fun onItemClick(device: Device?, position: Int)
+interface OnClickListenner {
+    fun onButtonDeleteClick(device: Device?, position: Int)
+    fun onDeviceClick(device: Device? , view : View)
 }
 
 class DevicesAdapter :
@@ -25,7 +27,7 @@ class DevicesAdapter :
     private var filterType: String = TYPE_ALL
 
 
-    private lateinit var listener: OnItemClickListener
+    private lateinit var listener: OnClickListenner
 
     companion object {
         private const val HOLDER_TYPE_LIGHT_ = 0
@@ -64,16 +66,8 @@ class DevicesAdapter :
         return filtredArray.size
     }
 
-    fun setDevices(items: ArrayList<Device>) {
 
-        devices.clear()
-        filtredArray.clear()
-        this.filtredArray.addAll(items)
-        this.devices = items
-        notifyDataSetChanged()
-    }
-
-    fun setListener(listener: OnItemClickListener) {
+    fun setListener(listener: OnClickListenner) {
         this.listener = listener
     }
 
@@ -126,6 +120,7 @@ class DevicesAdapter :
             )
             else -> throw IllegalArgumentException()
         }
+
     }
 
     override fun getItemViewType(position: Int): Int {
