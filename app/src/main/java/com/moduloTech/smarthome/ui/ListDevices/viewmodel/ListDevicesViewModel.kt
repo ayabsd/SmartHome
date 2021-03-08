@@ -12,16 +12,7 @@ class ListDevicesViewModel @ViewModelInject constructor(
     private var repository: DeviceRespository
 ) : ViewModel() {
 
-    private val typeDevice = MutableLiveData<String>()
     val devices = repository.getDevices()
-
-    val devicesByType = Transformations.switchMap(typeDevice) { type ->
-        repository.getAllDevicesByType(type)
-    }
-
-    fun startFilterDevice(type: String) {
-        typeDevice.value = type
-    }
 
     fun deleteDevice(device: Device) {
         repository.deleteDevice(device)

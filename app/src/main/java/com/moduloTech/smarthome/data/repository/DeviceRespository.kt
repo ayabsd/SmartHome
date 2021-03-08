@@ -27,9 +27,7 @@ class DeviceRespository @Inject constructor(
             else -> localDataSource.getDevicesByType(type)
         }
 
-
     }
-
 
     fun deleteDevice(device: Device){
        localDataSource.deleteById(device.id)

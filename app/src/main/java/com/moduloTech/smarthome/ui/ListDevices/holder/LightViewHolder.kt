@@ -11,7 +11,6 @@ class LightViewHolder(itemView: View) : BaseViewHolder<Device.Light>(itemView) {
         itemView.device_name_tv.text = device.name
         itemView.device_intensity_tv.text = device.intensity
         if (device.mode.toUpperCase() == "ON") itemView.state_switch.isChecked = true
-        itemView.isEnabled = false
         itemView.delete_bt_light.setOnClickListener {
             listener.onItemClick(device = device , position = position)
 

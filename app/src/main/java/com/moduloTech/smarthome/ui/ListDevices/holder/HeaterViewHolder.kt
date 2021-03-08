@@ -11,8 +11,7 @@ class HeaterViewHolder(itemView: View) : BaseViewHolder<Device.Heater>(itemView)
     override fun bind(device: Device.Heater, listener: OnItemClickListener, position: Int) {
         itemView.device_temperature_tv.text = device.temperature
         itemView.device_name_tv.text = device.name
-        if (device.mode.toUpperCase() == "ON") itemView.state_switch_heater.isChecked = true
-        itemView.isEnabled = false
+        if (device.mode.toUpperCase() == "ON") {itemView.state_switch_heater.isChecked = true}
         itemView.delete_bt_heater.setOnClickListener {
             listener.onItemClick(device = device , position = position)
 

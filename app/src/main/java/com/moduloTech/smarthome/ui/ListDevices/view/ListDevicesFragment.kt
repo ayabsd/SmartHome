@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.moduloTech.smarthome.R
+import com.moduloTech.smarthome.data.local.DataManager
 import com.moduloTech.smarthome.data.model.Device
 import com.moduloTech.smarthome.databinding.FragmentListDevicesBinding
 import com.moduloTech.smarthome.ui.ListDevices.adapter.DevicesAdapter
@@ -16,10 +17,16 @@ import com.moduloTech.smarthome.ui.ListDevices.adapter.OnItemClickListener
 import com.moduloTech.smarthome.ui.ListDevices.viewmodel.ListDevicesViewModel
 import com.moduloTech.smarthome.utils.*
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.util.*
+import javax.inject.Inject
 
 @AndroidEntryPoint
-class ListDevicesFragment : Fragment() ,  OnItemClickListener {
+class ListDevicesFragment : Fragment(), OnItemClickListener {
+    @Inject
+    lateinit var dataManager: DataManager
+
     private lateinit var binding: FragmentListDevicesBinding
     private val viewModel: ListDevicesViewModel by viewModels()
     private lateinit var adapter: DevicesAdapter
@@ -29,8 +36,8 @@ class ListDevicesFragment : Fragment() ,  OnItemClickListener {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         binding = FragmentListDevicesBinding.inflate(inflater, container, false)
         return binding.root
@@ -40,7 +47,6 @@ class ListDevicesFragment : Fragment() ,  OnItemClickListener {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
         setupObservers()
-        setupObserversByType()
     }
 
     private fun setupRecyclerView() {
@@ -56,7 +62,15 @@ class ListDevicesFragment : Fragment() ,  OnItemClickListener {
             when (it.status) {
                 Resource.Status.SUCCESS -> {
                     binding.progressBar.visibility = View.GONE
-                    if (!it.data.isNullOrEmpty()) adapter.setItems(ArrayList(convertResponse(it.data)))
+                    if (!it.data.isNullOrEmpty()) {
+
+                        adapter.filterDevices(
+                            adapter.getFilterType(),
+                            ArrayList(convertResponse(it.data))
+                        )
+
+
+                    }
                 }
                 Resource.Status.ERROR ->
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
@@ -65,6 +79,7 @@ class ListDevicesFragment : Fragment() ,  OnItemClickListener {
                     binding.progressBar.visibility = View.VISIBLE
             }
         })
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -74,33 +89,27 @@ class ListDevicesFragment : Fragment() ,  OnItemClickListener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.roller_shutter_action -> viewModel.startFilterDevice(TYPE_ROLLER)
-            R.id.light_action -> viewModel.startFilterDevice(TYPE_LIGHT)
-            R.id.heater_action -> viewModel.startFilterDevice(TYPE_HEATER)
-            R.id.all_action -> viewModel.startFilterDevice(TYPE_ALL)
+            R.id.roller_shutter_action -> adapter.filterWithType(TYPE_ROLLER)
+            R.id.light_action -> adapter.filterWithType(TYPE_LIGHT)
+            R.id.heater_action -> adapter.filterWithType(TYPE_HEATER)
+            R.id.all_action -> adapter.filterWithType(TYPE_ALL)
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setupObserversByType() {
-        viewModel.devicesByType.observe(viewLifecycleOwner, Observer { devices ->
-            devices?.let {
-                if (!devices.isNullOrEmpty()) adapter.setItems(ArrayList(convertResponse(devices)))
-                else  adapter.clearAll()
-            }
-        })
 
-    }
-
-    override fun onItemClick(device: Device? , position : Int) {
+    override fun onItemClick(device: Device?, position: Int) {
         if (device != null) {
             viewModel.deleteDevice(device)
-            adapter.notifyItemRemoved(position)
-            adapter.remove(position)
+            adapter.removeDevice(device)
 
         }
-
     }
 
+    override fun onPause() {
+        GlobalScope.launch {
+        }
+        super.onPause()
+    }
 
 }

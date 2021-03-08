@@ -1,5 +1,8 @@
 package com.moduloTech.smarthome.utils
 
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import com.moduloTech.smarthome.data.model.ApiDevices
 import com.moduloTech.smarthome.data.model.Device
 
@@ -31,3 +34,11 @@ fun convertResponse(devicesApi: List<ApiDevices>): List<Device> {
     }
 }
 
+fun <T> LiveData<T>.observeOnce(lifecycleOwner: LifecycleOwner, observer: Observer<T>) {
+    observe(lifecycleOwner, object : Observer<T> {
+        override fun onChanged(t: T?) {
+            observer.onChanged(t)
+            removeObserver(this)
+        }
+    })
+}

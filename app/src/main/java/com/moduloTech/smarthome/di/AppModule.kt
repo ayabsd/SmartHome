@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder
 import com.moduloTech.smarthome.data.ApiService
 import com.moduloTech.smarthome.data.AppDatabase
 import com.moduloTech.smarthome.data.Dao
+import com.moduloTech.smarthome.data.local.DataManager
 import com.moduloTech.smarthome.data.remote.RemoteDataSource
 import com.moduloTech.smarthome.data.repository.DeviceRespository
 import com.moduloTech.smarthome.utils.BASE_URL
@@ -51,5 +52,10 @@ object AppModule {
     fun provideRepository(remoteDataSource: RemoteDataSource,
                           localDataSource:Dao) =
         DeviceRespository(remoteDataSource, localDataSource)
+
+    @Singleton
+    @Provides
+    fun provideDataManager(@ApplicationContext context: Context) = DataManager(context)
+
 
 }
