@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SmartHome</string>
     <string name="app_Light">Light</string>
@@ -7,6 +8,4 @@
     <string name="app_save_change">Save change</string>
     <string name="app_devices">devices</string>
 
-
 </resources>
-
