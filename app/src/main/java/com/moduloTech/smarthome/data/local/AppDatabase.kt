@@ -1,4 +1,4 @@
-package com.moduloTech.smarthome.data
+package com.moduloTech.smarthome.data.local
 
 import android.content.Context
 import androidx.room.Database
@@ -17,7 +17,8 @@ abstract class AppDatabase : RoomDatabase() {
 
         fun getDatabase(context: Context): AppDatabase =
             instance ?: synchronized(this) {
-                instance ?: buildDatabase(context).also {
+                instance
+                        ?: buildDatabase(context).also {
                     instance = it
                 }
             }

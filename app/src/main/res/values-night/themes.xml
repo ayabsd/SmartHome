@@ -2,12 +2,13 @@
     <!-- Base application theme. -->
     <style name="Theme.SmartHome" parent="Theme.MaterialComponents">
         <item name="colorPrimary">@color/gray</item>
-        <item name="colorPrimaryDark">@color/gray_dark</item>
+        <item name="colorPrimaryDark">@color/gray</item>@zaa
         <item name="colorAccent">@color/white</item>
+        <item name="background">@color/gray_dark</item>
         <item name="actionBarStyle">@style/Theme.SmartHome.actionbarStyle</item>
     </style>
 
-    <style name="Theme.SmartHome.actionbarStyle">
+    <style name="Theme.SmartHome.actionbarStyle" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/gray</item>
     </style>
 
@@ -16,6 +17,14 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">10sp</item>
         <item name="android:layout_marginTop">2dp</item>
+        <item name="android:gravity">center_horizontal</item>
+
+    </style>
+
+    <style name="Theme.SmartHome.Text.title">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:layout_marginTop">5dp</item>
         <item name="android:gravity">center_horizontal</item>
 
     </style>
@@ -31,6 +40,15 @@
         <item name="android:layout_margin">5dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">150dp</item>
+
+    </style>
+
+    <style name="Theme.SmartHome.card.details">
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
 
     </style>
 

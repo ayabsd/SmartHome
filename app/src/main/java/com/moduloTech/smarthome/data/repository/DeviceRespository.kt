@@ -1,6 +1,6 @@
 package com.moduloTech.smarthome.data.repository
 
-import com.moduloTech.smarthome.data.Dao
+import com.moduloTech.smarthome.data.local.Dao
 import com.moduloTech.smarthome.data.model.Device
 import com.moduloTech.smarthome.data.remote.RemoteDataSource
 import com.moduloTech.smarthome.utils.performGetOperation
@@ -33,7 +33,13 @@ class DeviceRespository @Inject constructor(
     }
 
     fun updateDeviceLight(id: Int, intensity: Double, state: String) {
-        localDataSource.update(intensity, id = id , state = state )
+        localDataSource.updateDeviceLight(intensity, id = id , state = state )
+    }
+    fun updateDeviceHeater(id: Int, temperature: Double, state: String) {
+        localDataSource.updateDeviceHeater(temperature, id = id , state = state )
+    }
+    fun updateDeviceRoller(id: Int, position: Double) {
+        localDataSource.updateDeviceRoller(position, id = id  )
     }
 
 }

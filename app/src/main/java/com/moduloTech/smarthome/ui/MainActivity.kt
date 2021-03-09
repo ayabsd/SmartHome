@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.findNavController()
         setupActionBarWithNavController(navController)
     }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true

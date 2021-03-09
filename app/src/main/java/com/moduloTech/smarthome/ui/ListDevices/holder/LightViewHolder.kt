@@ -10,14 +10,20 @@ class LightViewHolder(itemView: View) : BaseViewHolder<Device.Light>(itemView) {
     override fun bind(device: Device.Light, listener: OnClickListenner, position: Int) {
         itemView.device_name_tv.text = device.name
         itemView.device_intensity_tv.text = device.intensity
-        if (device.mode.toUpperCase() == "ON") itemView.state_switch.isChecked = true
+        when (device.mode.toUpperCase()) {
+            "ON" -> itemView.state_switch.isChecked = true
+            "OFF" -> itemView.state_switch.isChecked = false
+        }
+
         itemView.delete_bt_light.setOnClickListener {
             listener.onButtonDeleteClick(device = device, position = position)
         }
         itemView.setOnClickListener {
-            listener.onDeviceClick(device , view = itemView)
+            listener.onDeviceClick(device, view = itemView)
 
         }
+
+
     }
 
 

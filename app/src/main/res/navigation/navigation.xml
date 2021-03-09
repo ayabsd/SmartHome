@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/device_details_roller"
-        android:name="com.moduloTech.smarthome.ui.DetailsDevice.DetailsDeviceRollerFragment"
+        android:name="com.moduloTech.smarthome.ui.DetailsDevice.roller.DetailsDeviceRollerFragment"
         android:label="@string/app_roller"
         tools:layout="@layout/details_device_roller_fragment">
 
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/device_details_heater"
-        android:name="com.moduloTech.smarthome.ui.DetailsDevice.DetailsDeviceHeaterFragment"
+        android:name="com.moduloTech.smarthome.ui.DetailsDevice.heater.DetailsDeviceHeaterFragment"
         android:label="@string/app_heater"
         tools:layout="@layout/details_device_light_fragment">
 

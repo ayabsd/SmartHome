@@ -1,4 +1,4 @@
-package com.moduloTech.smarthome.data
+package com.moduloTech.smarthome.data.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -25,6 +25,13 @@ interface Dao {
      fun deleteById(id: Int)
 
     @Query("UPDATE device SET intensity =:intensity, mode =:state WHERE id = :id")
-    fun update(intensity: Double, id: Int , state : String)
+    fun updateDeviceLight(intensity: Double, id: Int , state : String)
+
+    @Query("UPDATE device SET temperature =:temperature, mode =:state WHERE id = :id")
+    fun updateDeviceHeater(temperature: Double, id: Int , state : String)
+
+    @Query("UPDATE device SET position =:position WHERE id = :id")
+    fun updateDeviceRoller(position: Double, id: Int)
+
 
 }

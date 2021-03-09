@@ -1,4 +1,4 @@
-package com.moduloTech.smarthome.data
+package com.moduloTech.smarthome.data.service
 
 import com.moduloTech.smarthome.data.model.ApiResponse
 import retrofit2.Response

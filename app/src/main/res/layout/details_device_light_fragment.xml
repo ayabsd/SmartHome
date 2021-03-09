@@ -8,7 +8,6 @@
 
     <com.google.android.material.card.MaterialCardView
         style="@style/Theme.SmartHome.card.details"
-        android:layout_gravity="center_horizontal|center_vertical"
         app:cardBackgroundColor="@color/blue_clear">
 
         <androidx.constraintlayout.widget.ConstraintLayout

@@ -22,7 +22,6 @@ import java.util.*
 @AndroidEntryPoint
 class ListDevicesFragment : Fragment(), OnClickListenner {
 
-
     private lateinit var binding: FragmentListDevicesBinding
     private val viewModel: ListDevicesViewModel by viewModels()
     private lateinit var adapter: DevicesAdapter

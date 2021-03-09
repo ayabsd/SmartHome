@@ -1,6 +1,6 @@
 package com.moduloTech.smarthome.data.remote
 
-import com.moduloTech.smarthome.data.ApiService
+import com.moduloTech.smarthome.data.service.ApiService
 import javax.inject.Inject
 
 
