@@ -10,7 +10,7 @@ import com.moduloTech.smarthome.data.model.ApiDevices
 @Dao
 interface Dao {
     @Query("SELECT * FROM device")
-    fun getAllDevices(): LiveData<List<ApiDevices>>
+    fun getAllDevices(): List<ApiDevices>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllDevices(devices: List<ApiDevices>)
@@ -23,5 +23,8 @@ interface Dao {
 
     @Query("DELETE FROM device WHERE id = :id")
      fun deleteById(id: Int)
+
+    @Query("UPDATE device SET intensity =:intensity, mode =:state WHERE id = :id")
+    fun update(intensity: Double, id: Int , state : String)
 
 }

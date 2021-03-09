@@ -1,10 +1,9 @@
 package com.moduloTech.smarthome.utils
 
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import com.moduloTech.smarthome.data.model.ApiDevices
 import com.moduloTech.smarthome.data.model.Device
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 
 fun convertResponse(devicesApi: List<ApiDevices>): List<Device> {
@@ -33,12 +32,10 @@ fun convertResponse(devicesApi: List<ApiDevices>): List<Device> {
         }
     }
 }
-
-fun <T> LiveData<T>.observeOnce(lifecycleOwner: LifecycleOwner, observer: Observer<T>) {
-    observe(lifecycleOwner, object : Observer<T> {
-        override fun onChanged(t: T?) {
-            observer.onChanged(t)
-            removeObserver(this)
-        }
-    })
+fun roundStringToFloat(value : String) : Float {
+    val df = DecimalFormat("#.##")
+    df.roundingMode = RoundingMode.CEILING
+    val roune = df.format(value).replace(",",".")
+   return roune.toFloat()
 }
+

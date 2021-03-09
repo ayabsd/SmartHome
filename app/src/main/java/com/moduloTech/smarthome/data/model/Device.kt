@@ -2,7 +2,7 @@ package com.moduloTech.smarthome.data.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
-import java.io.Serializable
+
 sealed class Device : Parcelable {
     abstract val id: Int
     abstract val name: String

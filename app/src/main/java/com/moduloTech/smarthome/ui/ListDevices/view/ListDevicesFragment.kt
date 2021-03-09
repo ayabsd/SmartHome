@@ -10,21 +10,14 @@ import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.moduloTech.smarthome.R
-import com.moduloTech.smarthome.data.local.DataManager
 import com.moduloTech.smarthome.data.model.Device
 import com.moduloTech.smarthome.databinding.FragmentListDevicesBinding
 import com.moduloTech.smarthome.ui.ListDevices.adapter.DevicesAdapter
 import com.moduloTech.smarthome.ui.ListDevices.adapter.OnClickListenner
-import com.moduloTech.smarthome.ui.ListDevices.holder.HeaterViewHolder
-import com.moduloTech.smarthome.ui.ListDevices.holder.LightViewHolder
-import com.moduloTech.smarthome.ui.ListDevices.holder.RollerShutterViewHolder
 import com.moduloTech.smarthome.ui.ListDevices.viewmodel.ListDevicesViewModel
 import com.moduloTech.smarthome.utils.*
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.util.*
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class ListDevicesFragment : Fragment(), OnClickListenner {
@@ -66,10 +59,9 @@ class ListDevicesFragment : Fragment(), OnClickListenner {
                 Resource.Status.SUCCESS -> {
                     binding.progressBar.visibility = View.GONE
                     if (!it.data.isNullOrEmpty()) {
-
                         adapter.filterDevices(
-                                adapter.getFilterType(),
-                                ArrayList(convertResponse(it.data))
+                                adapter.getFilterType(), ArrayList(convertResponse(it.data))
+
                         )
 
 
@@ -110,30 +102,19 @@ class ListDevicesFragment : Fragment(), OnClickListenner {
     }
 
     override fun onDeviceClick(device: Device?, view: View) {
-
         when (device) {
             is Device.Light -> Navigation.findNavController(view).navigate(
-                    ListDevicesFragmentDirections
-                            .actionToLightDevice(device!!))
+                    ListDevicesFragmentDirections.actionToLightDevice(device!!))
 
             is Device.RollerShutter -> Navigation.findNavController(view).navigate(
                     ListDevicesFragmentDirections
                             .actionToRollerDevice(device!!))
-
-            is Device.Heater -> Navigation.findNavController(view).navigate(
-                    ListDevicesFragmentDirections
-                            .actionToHeaterDevice(device!!))
-
-
+            is Device.Heater -> Navigation.findNavController(view).navigate(ListDevicesFragmentDirections
+                    .actionToHeaterDevice(device!!))
             else -> throw IllegalArgumentException()
         }
 
     }
 
-    override fun onPause() {
-        GlobalScope.launch {
-        }
-        super.onPause()
-    }
 
 }

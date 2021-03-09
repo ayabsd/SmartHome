@@ -4,5 +4,4 @@ import androidx.lifecycle.ViewModel
 
 
 class DetailsDeviceRollerViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
 }

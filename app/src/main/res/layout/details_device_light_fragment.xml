@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.DetailsDevice.DetailsDeviceLightFragment">
+    tools:context=".ui.DetailsDevice.light.DetailsDeviceLightFragment">
 
     <com.google.android.material.card.MaterialCardView
         style="@style/Theme.SmartHome.card.details"
@@ -20,7 +20,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Theme.SmartHome.Text.title"
-                android:text="hshshshh"
                 app:layout_constraintBottom_toTopOf="@id/device_name_tv"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -50,7 +49,7 @@
                 />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/state_switch"
+                android:id="@+id/state_switch_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -59,16 +58,7 @@
                 android:textOff="OFf"
                 app:layout_constraintTop_toBottomOf="@id/device_intensity_tv" />
 
-            <com.google.android.material.button.MaterialButton
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/state_switch"
-                android:layout_width="wrap_content"
-                android:text="save changes"
-                android:layout_height="wrap_content">
 
-            </com.google.android.material.button.MaterialButton>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>

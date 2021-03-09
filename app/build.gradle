@@ -21,7 +21,6 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -93,9 +92,6 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
 
 
-    // Preferences DataStore
-    implementation "androidx.datastore:datastore-preferences:1.0.0-alpha01"
-    implementation 'com.android.support:multidex:1.0.3'
 
 
 }
