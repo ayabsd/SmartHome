@@ -7,10 +7,10 @@ import com.moduloTech.smarthome.data.repository.DeviceRespository
 
 
 class ListDevicesViewModel @ViewModelInject constructor(
-    private var repository: DeviceRespository
+        private var repository: DeviceRespository
 ) : ViewModel() {
 
-    val devices = repository.getDevices()
+    var devices = repository.getDevices()
 
     fun deleteDevice(device: Device) {
         repository.deleteDevice(device)
@@ -18,3 +18,5 @@ class ListDevicesViewModel @ViewModelInject constructor(
 
 
 }
+
+

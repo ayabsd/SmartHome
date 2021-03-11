@@ -1,10 +1,7 @@
 package com.moduloTech.smarthome.utils
 
-import com.moduloTech.smarthome.data.model.ApiDevices
+import com.moduloTech.smarthome.data.model.api.response.ApiDevices
 import com.moduloTech.smarthome.data.model.Device
-import java.math.RoundingMode
-import java.text.DecimalFormat
-
 
 fun convertResponse(devicesApi: List<ApiDevices>): List<Device> {
     return devicesApi.map {
@@ -32,10 +29,5 @@ fun convertResponse(devicesApi: List<ApiDevices>): List<Device> {
         }
     }
 }
-fun roundStringToFloat(value : String) : Float {
-    val df = DecimalFormat("#.##")
-    df.roundingMode = RoundingMode.CEILING
-    val roune = df.format(value).replace(",",".")
-   return roune.toFloat()
-}
+
 

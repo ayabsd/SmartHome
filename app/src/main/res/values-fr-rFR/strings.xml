@@ -9,4 +9,12 @@
     <string name="app_save_change" translatable="false">"Sauvegarder les modifications
 Sauvegarder les modifications
 e "</string>
+    <string name="app_btn_validate">confirmer</string>
+    <string name="app_user_name">Nom</string>
+    <string name="app_last_name">Prenom</string>
+    <string name="app_user_birth_date">"Date de naissance "</string>
+    <string name="app_user_city">Ville</string>
+    <string name="app_user_city_code">Code ville</string>
+    <string name="app_user_city_street">Code rue</string>
+    <string name="app_user_contry">Pays</string>
 </resources>

@@ -1,13 +1,13 @@
 package com.moduloTech.smarthome.di
-import android.content.Context
 
+import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.moduloTech.smarthome.data.service.ApiService
 import com.moduloTech.smarthome.data.local.AppDatabase
 import com.moduloTech.smarthome.data.local.Dao
 import com.moduloTech.smarthome.data.remote.RemoteDataSource
 import com.moduloTech.smarthome.data.repository.DeviceRespository
+import com.moduloTech.smarthome.data.service.ApiService
 import com.moduloTech.smarthome.utils.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -17,6 +17,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
+
 @Module
 @InstallIn(ApplicationComponent::class)
 object AppModule {
@@ -51,6 +52,8 @@ object AppModule {
     fun provideRepository(remoteDataSource: RemoteDataSource,
                           localDataSource: Dao) =
         DeviceRespository(remoteDataSource, localDataSource)
+
+
 
 
 }

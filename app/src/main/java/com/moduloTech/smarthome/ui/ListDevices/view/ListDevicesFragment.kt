@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.moduloTech.smarthome.R
 import com.moduloTech.smarthome.data.model.Device
@@ -31,8 +32,8 @@ class ListDevicesFragment : Fragment(), OnClickListenner {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         binding = FragmentListDevicesBinding.inflate(inflater, container, false)
         return binding.root
@@ -52,29 +53,6 @@ class ListDevicesFragment : Fragment(), OnClickListenner {
 
     }
 
-    private fun setupObservers() {
-        viewModel.devices.observe(viewLifecycleOwner, Observer {
-            when (it.status) {
-                Resource.Status.SUCCESS -> {
-                    binding.progressBar.visibility = View.GONE
-                    if (!it.data.isNullOrEmpty()) {
-                        adapter.filterDevices(
-                                adapter.getFilterType(), ArrayList(convertResponse(it.data))
-
-                        )
-
-
-                    }
-                }
-                Resource.Status.ERROR ->
-                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
-
-                Resource.Status.LOADING ->
-                    binding.progressBar.visibility = View.VISIBLE
-            }
-        })
-
-    }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu, menu)
@@ -87,6 +65,11 @@ class ListDevicesFragment : Fragment(), OnClickListenner {
             R.id.light_action -> adapter.filterWithType(TYPE_LIGHT)
             R.id.heater_action -> adapter.filterWithType(TYPE_HEATER)
             R.id.all_action -> adapter.filterWithType(TYPE_ALL)
+
+            R.id.action_fav -> view?.let {
+                Navigation.findNavController(it).navigate(
+                    ListDevicesFragmentDirections.actionToProfileFragment())
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -100,18 +83,43 @@ class ListDevicesFragment : Fragment(), OnClickListenner {
         }
     }
 
+
     override fun onDeviceClick(device: Device?, view: View) {
         when (device) {
             is Device.Light -> Navigation.findNavController(view).navigate(
-                    ListDevicesFragmentDirections.actionToLightDevice(device!!))
+                ListDevicesFragmentDirections.actionToLightDevice(device)
+            )
 
             is Device.RollerShutter -> Navigation.findNavController(view).navigate(
-                    ListDevicesFragmentDirections
-                            .actionToRollerDevice(device!!))
-            is Device.Heater -> Navigation.findNavController(view).navigate(ListDevicesFragmentDirections
-                    .actionToHeaterDevice(device!!))
+                ListDevicesFragmentDirections
+                    .actionToRollerDevice(device)
+            )
+            is Device.Heater -> Navigation.findNavController(view).navigate(
+                ListDevicesFragmentDirections.actionToHeaterDevice(device)
+            )
             else -> throw IllegalArgumentException()
         }
+
+    }
+
+    private fun setupObservers() {
+        viewModel.devices.observe(viewLifecycleOwner, Observer {
+            when (it.status) {
+                Resource.Status.SUCCESS -> {
+                    binding.progressBar.visibility = View.GONE
+                    if (!it.data.isNullOrEmpty()) {
+                        adapter.filterDevices(
+                            adapter.getFilterType(), ArrayList(convertResponse(it.data))
+                        )
+                    }
+                }
+                Resource.Status.ERROR ->
+                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+
+                Resource.Status.LOADING ->
+                    binding.progressBar.visibility = View.VISIBLE
+            }
+        })
 
     }
 

@@ -1,6 +1,8 @@
 package com.moduloTech.smarthome.ui.ListDevices.holder
 
 import android.view.View
+import android.view.animation.AnimationUtils
+import com.moduloTech.smarthome.R
 import com.moduloTech.smarthome.data.model.Device
 import com.moduloTech.smarthome.ui.ListDevices.adapter.OnClickListenner
 import kotlinx.android.synthetic.main.item_device_light.view.device_name_tv
@@ -19,6 +21,8 @@ class RollerShutterViewHolder(itemView: View) : BaseViewHolder<Device.RollerShut
             listener.onDeviceClick(device , view = itemView)
 
         }
+
+
     }
 
 

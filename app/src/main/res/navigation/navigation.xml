@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_to_light_device"
             app:destination="@id/device_details_light" />
+        <action
+            android:id="@+id/action_to_profile_fragment"
+            app:destination="@id/user_fragment" />
 
     </fragment>
 
@@ -48,10 +51,16 @@
         android:name="com.moduloTech.smarthome.ui.DetailsDevice.light.DetailsDeviceLightFragment"
         android:label="@string/app_Light"
         tools:layout="@layout/details_device_light_fragment">
-
         <argument
             android:name="arg_from_device_list_fragment"
             app:argType="com.moduloTech.smarthome.data.model.Device" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/user_fragment"
+        android:name="com.moduloTech.smarthome.ui.user.UserFragment"
+        android:label="@string/app_user_profile"
+        tools:layout="@layout/user_fragment">
     </fragment>
 
 </navigation>

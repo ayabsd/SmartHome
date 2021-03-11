@@ -6,5 +6,15 @@
     <string name="app_all">All</string>
     <string name="app_save_change">Save change</string>
     <string name="app_devices">devices</string>
+    <string name="app_btn_validate" translatable="false"> validate</string>
+    <string name="app_user_profile" translatable="false"> Profile</string>
+    <string name="app_user_name">Name</string>
+    <string name="app_last_name"> Last name</string>
+    <string name="app_user_birth_date">Date of Birth</string>
+    <string name="app_user_city"> City</string>
+    <string name="app_user_city_code"> City code</string>
+    <string name="app_user_city_street"> Street</string>
+    <string name="app_user_contry">Contry</string>
+
 </resources>
 

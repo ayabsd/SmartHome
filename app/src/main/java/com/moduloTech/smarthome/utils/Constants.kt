@@ -5,6 +5,10 @@ const val TYPE_LIGHT : String = "Light"
 const val TYPE_ROLLER : String = "RollerShutter"
 const val TYPE_HEATER : String = "Heater"
 const val TYPE_ALL : String = "All"
+const val ON : String = "ON"
+const val OFF : String = "OFF"
+
+
 
 
 

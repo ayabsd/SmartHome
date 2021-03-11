@@ -75,6 +75,14 @@ class DevicesAdapter :
         filtredArray.remove(device)
         notifyDataSetChanged()
     }
+    fun removeAll() {
+        filtredArray.clear()
+        devices.clear()
+    }
+    fun getArray() : ArrayList<Device>{
+        return devices
+    }
+
 
     fun filterWithType(type: String) {
         this.filterType = type
@@ -91,6 +99,7 @@ class DevicesAdapter :
     fun filterDevices(type: String, items: ArrayList<Device>) {
         this.filterType = type
         this.filtredArray.clear()
+        this.devices.clear()
         this.devices = items
         when (type) {
             TYPE_ROLLER -> filtredArray.addAll(items.filterIsInstance(Device.RollerShutter::class.java))

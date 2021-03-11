@@ -12,6 +12,11 @@
         android:menuCategory="secondary"
         android:title="@string/app_roller"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_fav"
+        android:icon="@android:drawable/ic_delete"
+        app:showAsAction="ifRoom"
+        android:title="hbh" />
 
     <item
         android:id="@+id/light_action"

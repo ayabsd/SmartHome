@@ -4,9 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.moduloTech.smarthome.data.model.ApiDevices
+import com.moduloTech.smarthome.data.model.Adress
+import com.moduloTech.smarthome.data.model.api.response.ApiDevices
+import com.moduloTech.smarthome.data.model.User
 
-@Database(entities = [ApiDevices::class], version = 1, exportSchema = false)
+@Database(entities = [ApiDevices::class, User::class, Adress::class], version = 5, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun deviceDao(): Dao
@@ -24,7 +26,7 @@ abstract class AppDatabase : RoomDatabase() {
             }
 
         private fun buildDatabase(appContext: Context) =
-            Room.databaseBuilder(appContext, AppDatabase::class.java, "devices").allowMainThreadQueries()
+            Room.databaseBuilder(appContext, AppDatabase::class.java, "smart_home").allowMainThreadQueries()
                 .fallbackToDestructiveMigration()
                 .build()
     }
