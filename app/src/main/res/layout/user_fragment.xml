@@ -1,136 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.user.UserFragment">
+    android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_margin="10dp">
+        tools:context=".ui.user.UserFragment">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/first_name_tv_layout"
-            style="@style/Theme.SmartHome.edit_text.layout"
-            android:hint="@string/app_user_name"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
 
-            <EditText
-                android:id="@+id/first_name_tv"
-                android:hint="@string/app_user_name"
-                style="@style/Theme.SmartHome.edit_text" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/last_name_tv_layout"
-            style="@style/Theme.SmartHome.edit_text.layout"
-            android:hint="@string/app_last_name"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/first_name_tv_layout">
-
-            <EditText
-                android:id="@+id/last_name_tv"
-                android:hint="@string/app_last_name"
-                style="@style/Theme.SmartHome.edit_text"
-                app:layout_constraintTop_toBottomOf="@id/first_name_tv" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/date_layout"
-            style="@style/Theme.SmartHome.edit_text.layout"
-            android:hint="@string/app_user_birth_date"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/last_name_tv_layout">
-
-            <EditText
-                android:id="@+id/birth_date_tv"
-                style="@style/Theme.SmartHome.edit_text"
-                android:hint="@string/app_user_birth_date"
-                android:inputType="date" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/citylayout"
-            style="@style/Theme.SmartHome.edit_text.layout"
-            android:hint="@string/app_user_city"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/date_layout">
-
-            <EditText
-                android:id="@+id/city_tv"
-                android:hint="@string/app_user_city"
-                style="@style/Theme.SmartHome.edit_text"
-                android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/code_cityl_layout"
-            style="@style/Theme.SmartHome.edit_text.layout"
-            android:hint="@string/app_user_city_code"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/citylayout">
-
-            <EditText
-                android:id="@+id/code_city_tv"
-                style="@style/Theme.SmartHome.edit_text"
-                android:hint="@string/app_user_city_code"
-                android:inputType="textPostalAddress" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/street_layout"
-            style="@style/Theme.SmartHome.edit_text.layout"
-            android:hint="@string/app_user_city_street"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/code_cityl_layout">
-
-            <EditText
-                android:id="@+id/street_tv"
-                style="@style/Theme.SmartHome.edit_text"
-                android:inputType="text"
-                android:hint="@string/app_user_city_street"
-                app:layout_constraintRight_toRightOf="parent" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/code_street_tvlayout"
-            style="@style/Theme.SmartHome.edit_text.layout"
-            android:hint="@string/app_user_city_code"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/code_cityl_layout">
-
-            <EditText
-                android:id="@+id/code_street_tv"
-                style="@style/Theme.SmartHome.edit_text"
-                android:hint="@string/app_user_city_code"
-                android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/contry_tvlayout"
-            style="@style/Theme.SmartHome.edit_text.layout"
-            android:hint="@string/app_user_contry"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/code_street_tvlayout">
-
-            <EditText
-                android:id="@+id/contry_tv"
-                style="@style/Theme.SmartHome.edit_text"
-                android:hint="@string/app_user_contry"
-                android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.button.MaterialButton
-            style="@style/CustomButtonStyle"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cornerRadius="6dp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/contry_tvlayout" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:padding="10dp">
 
-</FrameLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/first_name_tv_layout"
+                style="@style/Theme.SmartHome.edit_text.layout"
+                app:counterEnabled="true"
+                app:counterMaxLength="7"
+                app:counterOverflowTextAppearance="@style/CounterOverFlow"
+                app:hintTextAppearance="@style/HintText"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <EditText
+                    android:id="@+id/first_name_tv"
+                    style="@style/Theme.SmartHome.edit_text"
+                    android:hint="@string/app_user_name"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    app:endIconMode="clear_text"
+                    tools:ignore="ExtraText" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/last_name_tv_layout"
+                style="@style/Theme.SmartHome.edit_text.layout"
+                app:counterEnabled="true"
+                app:counterMaxLength="7"
+                app:counterOverflowTextAppearance="@style/CounterOverFlow"
+                app:hintTextAppearance="@style/HintText"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/first_name_tv_layout">
+
+                <EditText
+                    android:id="@+id/last_name_tv"
+                    style="@style/Theme.SmartHome.edit_text"
+                    android:hint="@string/app_last_name"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintTop_toBottomOf="@id/first_name_tv" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/date_layout"
+                style="@style/Theme.SmartHome.edit_text.layout"
+                android:imeOptions="actionDone"
+                app:counterEnabled="true"
+                app:counterMaxLength="10"
+                app:counterOverflowTextAppearance="@style/CounterOverFlow"
+                app:hintTextAppearance="@style/HintText"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/last_name_tv_layout">
+
+                <EditText
+                    android:id="@+id/birth_date_tv"
+                    style="@style/Theme.SmartHome.edit_text"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:hint="@string/app_user_birth_date"
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="no"
+                    android:inputType="none"
+                    android:keyboardNavigationCluster="false"
+                    android:singleLine="true"
+                    tools:ignore="TextFields"
+                    tools:targetApi="o" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/citylayout"
+                style="@style/Theme.SmartHome.edit_text.layout"
+                app:counterEnabled="true"
+                app:counterMaxLength="40"
+                app:counterOverflowTextAppearance="@style/CounterOverFlow"
+                app:hintTextAppearance="@style/HintText"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/date_layout">
+
+                <EditText
+                    android:id="@+id/city_tv"
+                    style="@style/Theme.SmartHome.edit_text"
+                    android:hint="@string/app_user_city"
+                    android:importantForAutofill="no"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/code_cityl_layout"
+                style="@style/Theme.SmartHome.edit_text.layout"
+                app:counterEnabled="true"
+                app:counterMaxLength="5"
+                app:counterOverflowTextAppearance="@style/CounterOverFlow"
+                app:hintTextAppearance="@style/HintText"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/citylayout">
+
+                <EditText
+                    android:id="@+id/code_city_tv"
+                    style="@style/Theme.SmartHome.edit_text"
+                    android:hint="@string/app_user_city_code"
+                    android:importantForAutofill="no"
+
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/street_layout"
+                style="@style/Theme.SmartHome.edit_text.layout"
+                app:counterEnabled="true"
+                app:counterMaxLength="30"
+                app:counterOverflowTextAppearance="@style/CounterOverFlow"
+                app:hintTextAppearance="@style/HintText"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/code_cityl_layout">
+
+                <EditText
+                    android:id="@+id/street_tv"
+                    style="@style/Theme.SmartHome.edit_text"
+                    android:hint="@string/app_user_city_street"
+                    android:importantForAutofill="no"
+                    android:inputType="textPostalAddress"
+                    app:layout_constraintRight_toRightOf="parent" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/code_street_tvlayout"
+                style="@style/Theme.SmartHome.edit_text.layout"
+                app:counterEnabled="true"
+                app:counterMaxLength="30"
+                app:counterOverflowTextAppearance="@style/CounterOverFlow"
+                app:hintTextAppearance="@style/HintText"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/street_layout">
+
+                <EditText
+                    android:id="@+id/code_street_tv"
+                    style="@style/Theme.SmartHome.edit_text"
+                    android:hint="@string/app_user_street_code"
+                    android:importantForAutofill="no"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/contry_tvlayout"
+                style="@style/Theme.SmartHome.edit_text.layout"
+                app:counterEnabled="true"
+                app:counterMaxLength="10"
+                app:counterOverflowTextAppearance="@style/CounterOverFlow"
+                app:hintTextAppearance="@style/HintText"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/code_street_tvlayout">
+
+                <EditText
+                    android:id="@+id/contry_tv"
+                    style="@style/Theme.SmartHome.edit_text"
+                    android:hint="@string/app_user_contry"
+                    android:importantForAutofill="no"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/validate_update"
+                style="@style/CustomButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_btn_validate"
+                app:cornerRadius="6dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contry_tvlayout" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</ScrollView>

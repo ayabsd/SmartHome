@@ -6,5 +6,4 @@ data class ApiAdress (
         val streetCode: String,
         val postalCode: String,
         val country: String
-
 )

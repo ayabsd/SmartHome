@@ -13,10 +13,10 @@
         android:title="@string/app_roller"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_fav"
-        android:icon="@android:drawable/ic_delete"
+        android:id="@+id/action_profile"
+        android:icon="@drawable/ic_user"
         app:showAsAction="ifRoom"
-        android:title="hbh" />
+        android:title="Upate user profile" />
 
     <item
         android:id="@+id/light_action"

@@ -5,8 +5,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.moduloTech.smarthome.data.model.Adress
-import com.moduloTech.smarthome.data.model.api.response.ApiDevices
 import com.moduloTech.smarthome.data.model.User
+import com.moduloTech.smarthome.data.model.api.response.ApiDevices
 
 @Database(entities = [ApiDevices::class, User::class, Adress::class], version = 5, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {

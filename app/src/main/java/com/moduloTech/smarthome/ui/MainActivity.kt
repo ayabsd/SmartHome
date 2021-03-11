@@ -1,17 +1,12 @@
 package com.moduloTech.smarthome.ui
 
 import android.os.Bundle
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.moduloTech.smarthome.R
-import com.moduloTech.smarthome.ui.ListDevices.view.ListDevicesFragmentDirections
-import com.moduloTech.smarthome.utils.TYPE_HEATER
-import com.moduloTech.smarthome.utils.TYPE_LIGHT
-import com.moduloTech.smarthome.utils.TYPE_ROLLER
 import dagger.hilt.android.AndroidEntryPoint
 
 

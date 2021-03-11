@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.DetailsDevice.light.DetailsDeviceLightFragment">
 
-    <com.google.android.material.card.MaterialCardView xmlns:tools="http://schemas.android.com/tools"
+    <com.google.android.material.card.MaterialCardView
         style="@style/Theme.SmartHome.card.details"
         app:cardBackgroundColor="@color/yellow_clear">
 
@@ -50,16 +50,12 @@
                 />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/state_switch_temperature"
+                android:id="@+id/switch_heater"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:enabled="true"
-                android:textOff="OFf"
-                android:textOn="ON"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/device_temperature_tv" />
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>

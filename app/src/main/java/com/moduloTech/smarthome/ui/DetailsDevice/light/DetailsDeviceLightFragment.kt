@@ -6,22 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.google.android.material.slider.Slider
 import com.moduloTech.smarthome.data.model.Device
 import com.moduloTech.smarthome.databinding.DetailsDeviceLightFragmentBinding
 import com.moduloTech.smarthome.utils.OFF
 import com.moduloTech.smarthome.utils.ON
 import dagger.hilt.android.AndroidEntryPoint
 import java.math.RoundingMode
-import java.text.DecimalFormat
 
 @AndroidEntryPoint
-
 class DetailsDeviceLightFragment : Fragment() {
     private lateinit var binding: DetailsDeviceLightFragmentBinding
     private lateinit var device: Device.Light
-
-
     private val viewModel: DetailsDeviceLightViewModel by viewModels()
 
     override fun onCreateView(
@@ -39,37 +34,33 @@ class DetailsDeviceLightFragment : Fragment() {
         initView()
     }
 
-    fun getDevice() {
+    private fun getDevice() {
         device =
             DetailsDeviceLightFragmentArgs.fromBundle(requireArguments()).argFromDeviceListFragment as Device.Light
     }
 
     private fun initView() {
         if (device != null) {
-            if (device.mode.equals(ON)) binding.stateSwitchLight.isChecked =
-                true else binding.stateSwitchLight.isChecked = false
+            binding.switchLight.isChecked = device.mode == ON
             binding.deviceNameTv.text = device.name
             binding.deviceLightSilder.value = device.intensity.toFloat()
             binding.deviceIntensityTv.text = device.intensity.toFloat().toString()
-            binding.deviceLightSilder.addOnChangeListener(Slider.OnChangeListener { slider, value, fromUser ->
-                binding.deviceIntensityTv.text = value.toBigDecimal().setScale(1, RoundingMode.UP).toDouble().toString()
-            })
+            binding.deviceLightSilder.addOnChangeListener { slider, value, fromUser ->
+                binding.deviceIntensityTv.text =
+                    value.toBigDecimal().setScale(1, RoundingMode.UP).toDouble().toString()
+            }
 
         }
     }
 
-
     override fun onPause() {
-        val stateSwitch = when (binding.stateSwitchLight.isChecked) {
+        val stateSwitch = when (binding.switchLight.isChecked) {
             true -> ON
             false -> OFF
         }
-        val df = DecimalFormat("#.##")
-        df.roundingMode = RoundingMode.CEILING
         val silderLightvalue =
             binding.deviceLightSilder.value.toBigDecimal().setScale(1, RoundingMode.UP).toDouble()
         viewModel.updateDeviceLight(device.id, silderLightvalue, stateSwitch)
-
         super.onPause()
     }
 }

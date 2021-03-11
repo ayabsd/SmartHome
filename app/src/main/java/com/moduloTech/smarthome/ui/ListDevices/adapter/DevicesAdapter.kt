@@ -75,13 +75,6 @@ class DevicesAdapter :
         filtredArray.remove(device)
         notifyDataSetChanged()
     }
-    fun removeAll() {
-        filtredArray.clear()
-        devices.clear()
-    }
-    fun getArray() : ArrayList<Device>{
-        return devices
-    }
 
 
     fun filterWithType(type: String) {

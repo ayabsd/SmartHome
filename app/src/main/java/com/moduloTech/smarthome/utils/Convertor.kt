@@ -1,7 +1,10 @@
+@file:Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+
 package com.moduloTech.smarthome.utils
 
-import com.moduloTech.smarthome.data.model.api.response.ApiDevices
 import com.moduloTech.smarthome.data.model.Device
+import com.moduloTech.smarthome.data.model.api.response.ApiDevices
+import java.text.SimpleDateFormat
 
 fun convertResponse(devicesApi: List<ApiDevices>): List<Device> {
     return devicesApi.map {
@@ -30,4 +33,12 @@ fun convertResponse(devicesApi: List<ApiDevices>): List<Device> {
     }
 }
 
+fun convertdateNumberToDate(dateNumber: Long?): String {
+    val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy")
+    return simpleDateFormat.format(dateNumber)
+}
 
+fun convertDateToLong(date: String?): Long {
+    val df = SimpleDateFormat("dd/MM/yyyy")
+    return df.parse(date).time
+}

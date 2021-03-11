@@ -4,8 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import androidx.room.Dao
 import com.moduloTech.smarthome.data.model.Adress
-import com.moduloTech.smarthome.data.model.api.response.ApiDevices
 import com.moduloTech.smarthome.data.model.User
+import com.moduloTech.smarthome.data.model.api.response.ApiDevices
+
 
 @Dao
 interface Dao {
@@ -23,6 +24,12 @@ interface Dao {
 
     @Query("SELECT * FROM device ORDER BY productType ASC")
     fun getAlldevicesOrderedByType(): LiveData<List<ApiDevices>>
+
+    @Query("SELECT * FROM user")
+    fun getUser(): LiveData<User>
+
+    @Query("SELECT * FROM adresse")
+    fun getAdress(): LiveData<Adress>
 
     @Query("SELECT * FROM device WHERE productType = :type")
     fun getDevicesByType(type: String): LiveData<List<ApiDevices>>
@@ -45,5 +52,9 @@ interface Dao {
     @Delete
     fun deleteAll(evices: List<ApiDevices>)
 
+    @Update
+    fun updateUser(user: User?): Int
 
+    @Update
+    fun updateAdress(adress: Adress): Int
 }

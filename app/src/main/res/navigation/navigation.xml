@@ -2,7 +2,6 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
     app:startDestination="@id/devices_fragment">
 
     <fragment
@@ -12,16 +11,32 @@
         tools:layout="@layout/fragment_list_devices">
         <action
             android:id="@+id/action_to_roller_device"
-            app:destination="@id/device_details_roller" />
+            app:destination="@id/device_details_roller"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_to_heater_device"
-            app:destination="@id/device_details_heater" />
+            app:destination="@id/device_details_heater"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_to_light_device"
-            app:destination="@id/device_details_light" />
+            app:destination="@id/device_details_light"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_to_profile_fragment"
-            app:destination="@id/user_fragment" />
+            app:destination="@id/user_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
 
     </fragment>
 
@@ -60,7 +75,5 @@
         android:id="@+id/user_fragment"
         android:name="com.moduloTech.smarthome.ui.user.UserFragment"
         android:label="@string/app_user_profile"
-        tools:layout="@layout/user_fragment">
-    </fragment>
-
+        tools:layout="@layout/user_fragment" />
 </navigation>

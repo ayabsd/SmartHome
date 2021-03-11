@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.moduloTech.smarthome.R
 import com.moduloTech.smarthome.data.model.Device
@@ -65,10 +64,10 @@ class ListDevicesFragment : Fragment(), OnClickListenner {
             R.id.light_action -> adapter.filterWithType(TYPE_LIGHT)
             R.id.heater_action -> adapter.filterWithType(TYPE_HEATER)
             R.id.all_action -> adapter.filterWithType(TYPE_ALL)
-
-            R.id.action_fav -> view?.let {
+            R.id.action_profile -> view?.let {
                 Navigation.findNavController(it).navigate(
-                    ListDevicesFragmentDirections.actionToProfileFragment())
+                    ListDevicesFragmentDirections.actionToProfileFragment()
+                )
             }
         }
         return super.onOptionsItemSelected(item)
@@ -106,7 +105,7 @@ class ListDevicesFragment : Fragment(), OnClickListenner {
         viewModel.devices.observe(viewLifecycleOwner, Observer {
             when (it.status) {
                 Resource.Status.SUCCESS -> {
-                    binding.progressBar.visibility = View.GONE
+                    binding.progress.visibility = View.GONE
                     if (!it.data.isNullOrEmpty()) {
                         adapter.filterDevices(
                             adapter.getFilterType(), ArrayList(convertResponse(it.data))
@@ -117,7 +116,7 @@ class ListDevicesFragment : Fragment(), OnClickListenner {
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
 
                 Resource.Status.LOADING ->
-                    binding.progressBar.visibility = View.VISIBLE
+                    binding.progress.visibility = View.VISIBLE
             }
         })
 
