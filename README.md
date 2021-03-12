@@ -29,7 +29,6 @@ Les avantages de Hilt
 - Dépendances de build découplées
 
 ### Navigation Component
-##### Navigation
 
 La navigation fait référence aux interactions qui permettent aux utilisateurs de naviguer, d'entrer et de revenir des différents éléments de contenu de votre application. Le composant de navigation d'Android Jetpack vous aide à implémenter la navigation, des simples clics sur des boutons aux modèles plus complexes, tels que les barres d'applications et le tiroir de navigation.
 
