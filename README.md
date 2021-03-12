@@ -34,9 +34,9 @@ La navigation fait référence aux interactions qui permettent aux utilisateurs 
 
 ### Coroutines
 Une coroutine est un modèle de conception d' accès concurrentiel que vous pouvez utiliser sur Android pour simplifier le code qui s'exécute de manière asynchrone. Les coroutines ont été ajoutées à Kotlin dans la version 1.3 et sont basées sur des concepts établis d'autres langages.
-Sur Android, les coroutines aident à gérer les tâches de longue durée qui pourraient autrement bloquer le thread principal et empêcher votre application de répondre. Plus de 50% des développeurs professionnels qui utilisent des coroutines ont signalé une augmentation de leur productivité. Cette rubrique décrit comment utiliser les coroutines Kotlin pour résoudre ces problèmes, ce qui vous permet d'écrire un code d'application plus propre et plus concis.
+Sur Android, les coroutines aident à gérer les tâches de longue durée qui pourraient autrement bloquer le thread principal et empêcher votre application de répondre. 
 
-Coroutines est  trés recommandée pour la programmation asynchrone sur Android. Les caractéristiques remarquables sont les suivantes:
+NB : Coroutines est  trés recommandée pour la programmation asynchrone sur Android. Les caractéristiques remarquables sont les suivantes:
 
  - Léger : vous pouvez exécuter de nombreuses coroutines sur un seul thread en raison de la prise en charge de la suspension , qui ne bloque pas le thread où la coroutine s'exécute. La suspension économise la mémoire par rapport au blocage tout en prenant en charge de nombreuses opérations simultanées.
 - Moins de fuites de mémoire : utilisez la concurrence structurée pour exécuter des opérations dans une étendue.
