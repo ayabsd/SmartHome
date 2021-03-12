@@ -50,7 +50,7 @@ Prise en charge intégrée de l'annulation : l' annulation est propagée automat
 - Les observateurs sont liés aux Lifecycleobjets et nettoient après eux-mêmes lorsque leur cycle de vie associé est détruit.
 - Fini la gestion manuelle du cycle de vie
 - Données toujours à jour
-- 
+
 ### Room 
 Room est l’ORM officiel pour mettre en place une persistance de données dans une application Android. Cette librairie brille par son efficacité, sa simplicité et son système de mise en cache.
 
@@ -63,7 +63,6 @@ Room est l’ORM officiel pour mettre en place une persistance de données dans 
 ![Capture d’écran 2021-03-12 à 11 43 04](https://user-images.githubusercontent.com/10687584/110929502-4d13b600-8328-11eb-8e4c-619c36987e96.png)
 
 
--   
 # DARK MODE Anglais
 
 ![Screenshot_20210312-110453_SmartHome](https://user-images.githubusercontent.com/10687584/110925785-e7252f80-8323-11eb-92c0-9b4a945db03d.jpg)
