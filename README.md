@@ -18,8 +18,8 @@ Lors du développement d'une application Android, il est important de planifier 
 
 ## Librairies 
 ### Hilt 
-Dans ce projet j’ai utilisé Hilt pour l’injection de dépendances , qui réduit l'utilisation standard de DI manuelle dans votre projet. Hilt facilite l'ajout d'une injection de dépendances à votre application Android.
-Hilt fournit un moyen standard de faire l'injection DI dans votre application en fournissant des conteneurs à chaque composant Android de votre projet et en gérant automatiquement le cycle de vie du conteneur pour vous.
+Dans ce projet j’ai utilisé Hilt pour l’injection de dépendances , qui réduit l'utilisation standard de DI manuelle dans le projet. Hilt facilite l'ajout d'une injection de dépendances à application Android.
+Hilt fournit un moyen standard de faire l'injection DI dans  l'application en fournissant des conteneurs à chaque composant Android de  projet et en gérant automatiquement le cycle de vie du conteneur pour vous.
 Les avantages de Hilt
 
 - Réutilisabilité du code.
@@ -46,7 +46,7 @@ Prise en charge intégrée de l'annulation : l' annulation est propagée automat
 ### LiveData
  LiveData est un "observable data holder class". Contrairement à un observable ordinaire, LiveData est sensible au cycle de vie, ce qui signifie qu'il respecte le cycle de vie des autres composants de l'application, tels que les activités, les fragments ou les services. Cette prise de conscience garantit que LiveData ne met à jour que les observateurs de composants d'application qui sont dans un état de cycle de vi
  
-- S'assure que votre interface utilisateur correspond à l'état de vos données
+- S'assure que l'interface utilisateur correspond à l'état de vos données
 - Les observateurs sont liés aux Lifecycleobjets et nettoient après eux-mêmes lorsque leur cycle de vie associé est détruit.
 - Fini la gestion manuelle du cycle de vie
 - Données toujours à jour
