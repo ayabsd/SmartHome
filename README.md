@@ -1,3 +1,4 @@
+# SmartHome
 
 SmartHome est une application qui permet de paramétrer des composants comme la lumière , des volets roulants ou des radiateurs.
 Model: Notre M (modèle) dans MVVM. Où j’ai effectué des opérations de données.
