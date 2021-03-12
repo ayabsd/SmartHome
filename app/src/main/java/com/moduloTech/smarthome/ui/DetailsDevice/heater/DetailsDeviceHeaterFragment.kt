@@ -40,9 +40,7 @@ class DetailsDeviceHeaterFragment : Fragment() {
     }
 
     private fun initView() {
-        if (device != null) {
-            binding.switchHeater.isChecked = device.mode == ON
-        }
+        binding.switchHeater.isChecked = device.mode == ON
         binding.deviceNameTv.text = device.name
         binding.deviceTemperature.value = device.temperature.toFloat()
         binding.deviceTemperatureTv.text = device.temperature.toFloat().toString()

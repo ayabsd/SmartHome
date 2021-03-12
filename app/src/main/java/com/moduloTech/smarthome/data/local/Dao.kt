@@ -16,21 +16,6 @@ interface Dao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllDevices(devices: List<ApiDevices>)
 
-    @Insert
-    suspend fun insertUser(user: User)
-
-    @Insert
-    suspend fun insertUserAdress(adress: Adress)
-
-    @Query("SELECT * FROM device ORDER BY productType ASC")
-    fun getAlldevicesOrderedByType(): LiveData<List<ApiDevices>>
-
-    @Query("SELECT * FROM user")
-    fun getUser(): LiveData<User>
-
-    @Query("SELECT * FROM adresse")
-    fun getAdress(): LiveData<Adress>
-
     @Query("SELECT * FROM device WHERE productType = :type")
     fun getDevicesByType(type: String): LiveData<List<ApiDevices>>
 
@@ -49,12 +34,24 @@ interface Dao {
     @Query("DELETE  FROM device")
     fun deleteAll()
 
-    @Delete
-    fun deleteAll(evices: List<ApiDevices>)
-
     @Update
     fun updateUser(user: User?): Int
 
     @Update
     fun updateAdress(adress: Adress): Int
+
+    @Insert
+    suspend fun insertUser(user: User)
+
+    @Insert
+    suspend fun insertUserAdress(adress: Adress)
+
+    @Query("SELECT * FROM device ORDER BY productType ASC")
+    fun getAlldevicesOrderedByType(): LiveData<List<ApiDevices>>
+
+    @Query("SELECT * FROM user")
+    fun getUser(): LiveData<User>
+
+    @Query("SELECT * FROM adresse")
+    fun getAdress(): LiveData<Adress>
 }

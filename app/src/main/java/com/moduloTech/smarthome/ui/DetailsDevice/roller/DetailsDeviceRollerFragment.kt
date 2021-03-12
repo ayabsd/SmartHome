@@ -39,14 +39,13 @@ class DetailsDeviceRollerFragment : Fragment() {
 
     /*This initView and display device data */
     private fun intView() {
-        if (device != null) {
             binding.deviceNameTv.text = device.name
             binding.deviceRollerValue.value = device.position.toFloat()
             binding.rollerPositionTv.text = device.position
             binding.deviceRollerValue.addOnChangeListener { slider, value, fromUser ->
                 binding.rollerPositionTv.text =
                     value.toBigDecimal().setScale(1, RoundingMode.UP).toDouble().toString()
-            }
+
 
         }
     }

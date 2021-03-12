@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.user_fragment.*
 import java.util.*
 
 
+@Suppress("DEPRECATION")
 @AndroidEntryPoint
 class UserFragment : Fragment(), View.OnClickListener {
 
@@ -55,9 +56,9 @@ class UserFragment : Fragment(), View.OnClickListener {
 
         viewModel.userUpdateStatus.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             if (it == true)
-                Toast.makeText(activity, "Data updated", Toast.LENGTH_LONG).show()
+                Toast.makeText(activity, resources.getString(R.string.app_user_upated), Toast.LENGTH_LONG).show()
             else
-                Toast.makeText(activity, "Data Not updated", Toast.LENGTH_LONG).show()
+                Toast.makeText(activity, resources.getString(R.string.app_user_not_upated), Toast.LENGTH_LONG).show()
 
         })
     }
@@ -77,14 +78,14 @@ class UserFragment : Fragment(), View.OnClickListener {
             val mDay = mCurrentDate[Calendar.DAY_OF_MONTH]
             val mDatePicker =
                 DatePickerDialog(
-                    requireContext(),
+                    requireContext(), R.style.DatePickerDialog,
                     OnDateSetListener { datePicker_, selectedYear, selectedMonth, selectedDay ->
 
                         birth_date_tv.setText("$selectedDay/$selectedMonth/$selectedYear")
 
                     }, mYear, mMonth, mDay
                 )
-            mDatePicker.setTitle("Select date")
+
             mDatePicker.show()
         }
     }

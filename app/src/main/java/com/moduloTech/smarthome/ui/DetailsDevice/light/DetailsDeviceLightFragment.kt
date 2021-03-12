@@ -40,7 +40,6 @@ class DetailsDeviceLightFragment : Fragment() {
     }
 
     private fun initView() {
-        if (device != null) {
             binding.switchLight.isChecked = device.mode == ON
             binding.deviceNameTv.text = device.name
             binding.deviceLightSilder.value = device.intensity.toFloat()
@@ -48,7 +47,7 @@ class DetailsDeviceLightFragment : Fragment() {
             binding.deviceLightSilder.addOnChangeListener { slider, value, fromUser ->
                 binding.deviceIntensityTv.text =
                     value.toBigDecimal().setScale(1, RoundingMode.UP).toDouble().toString()
-            }
+
 
         }
     }
