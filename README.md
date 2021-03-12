@@ -58,6 +58,11 @@ Room est l’ORM officiel pour mettre en place une persistance de données dans 
 - (Relativement) Riche. Elle offre des mécanismes de migration, est bien documentée, force à découper son code…
 
 
+[Ref1]: <https://developer.android.com/kotlin/coroutines?hl=fr&gclid=Cj0KCQiAv6yCBhCLARIsABqJTjYLqZea84F14eEh0pj4oN_6nbpU0E_9g7XJez44kp0gXMjj0SULy3kaAh_oEALw_wcB&gclsrc=aw.ds>
+[Ref2]: <https://developer.android.com/guide/navigation>
+[Ref3]: <https://developer.android.com/training/dependency-injection/hilt-android>
+[Ref4]: <https://developer.android.com/topic/libraries/architecture/livedata>
+
 
 # Taches effectués
 ![Capture d’écran 2021-03-12 à 11 43 04](https://user-images.githubusercontent.com/10687584/110929502-4d13b600-8328-11eb-8e4c-619c36987e96.png)
@@ -76,10 +81,5 @@ Room est l’ORM officiel pour mettre en place une persistance de données dans 
 ![Screenshot_20210312_110438_com moduloTech smarthome (1)](https://user-images.githubusercontent.com/10687584/110926128-4d11b700-8324-11eb-8487-c9c38aec0b22.jpg)
 
 
-
-[Ref]: <https://developer.android.com/kotlin/coroutines?hl=fr&gclid=Cj0KCQiAv6yCBhCLARIsABqJTjYLqZea84F14eEh0pj4oN_6nbpU0E_9g7XJez44kp0gXMjj0SULy3kaAh_oEALw_wcB&gclsrc=aw.ds>
-[Ref]: <https://developer.android.com/guide/navigation>
-[Ref]: <https://developer.android.com/training/dependency-injection/hilt-android>
-[Ref]: <https://developer.android.com/topic/libraries/architecture/livedata>
 
 
