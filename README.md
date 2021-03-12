@@ -1,5 +1,11 @@
 # SmartHome
 
+[Ref1]: <https://developer.android.com/kotlin/coroutines?hl=fr&gclid=Cj0KCQiAv6yCBhCLARIsABqJTjYLqZea84F14eEh0pj4oN_6nbpU0E_9g7XJez44kp0gXMjj0SULy3kaAh_oEALw_wcB&gclsrc=aw.ds>
+[Ref2]: <https://developer.android.com/guide/navigation>
+[Ref3]: <https://developer.android.com/training/dependency-injection/hilt-android>
+[Ref4]: <https://developer.android.com/topic/libraries/architecture/livedata>
+
+
 SmartHome est une application qui permet de paramétrer des composants comme la lumière , des volets roulants ou des radiateurs.
 Model: Notre M (modèle) dans MVVM. Où j’ai effectué des opérations de données.
 di: Injection de dépendances avec l'aide de Hilt.
@@ -56,12 +62,6 @@ Room est l’ORM officiel pour mettre en place une persistance de données dans 
 
 - Simple. Elle se base sur des annotations.
 - (Relativement) Riche. Elle offre des mécanismes de migration, est bien documentée, force à découper son code…
-
-
-[Ref1]: <https://developer.android.com/kotlin/coroutines?hl=fr&gclid=Cj0KCQiAv6yCBhCLARIsABqJTjYLqZea84F14eEh0pj4oN_6nbpU0E_9g7XJez44kp0gXMjj0SULy3kaAh_oEALw_wcB&gclsrc=aw.ds>
-[Ref2]: <https://developer.android.com/guide/navigation>
-[Ref3]: <https://developer.android.com/training/dependency-injection/hilt-android>
-[Ref4]: <https://developer.android.com/topic/libraries/architecture/livedata>
 
 
 # Taches effectués
