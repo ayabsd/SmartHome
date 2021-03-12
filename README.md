@@ -44,7 +44,7 @@ Coroutines est  trés recommandée pour la programmation asynchrone sur Android.
 Prise en charge intégrée de l'annulation : l' annulation est propagée automatiquement via la hiérarchie coroutine en cours d'exécution.
 - Intégration Jetpack : De nombreuses bibliothèques Jetpack incluent des extensions qui fournissent une prise en charge complète des coroutines. Certaines bibliothèques fournissent également leur propre étendue de coroutine que vous pouvez utiliser pour la concurrence structurée.
 
- ### LiveData
+### LiveData
  LiveData est un "observable data holder class". Contrairement à un observable ordinaire, LiveData est sensible au cycle de vie, ce qui signifie qu'il respecte le cycle de vie des autres composants de l'application, tels que les activités, les fragments ou les services. Cette prise de conscience garantit que LiveData ne met à jour que les observateurs de composants d'application qui sont dans un état de cycle de vi
  
 - S'assure que votre interface utilisateur correspond à l'état de vos données
@@ -52,6 +52,12 @@ Prise en charge intégrée de l'annulation : l' annulation est propagée automat
 - Fini la gestion manuelle du cycle de vie
 - Données toujours à jour
 - 
+### Room 
+Room est l’ORM officiel pour mettre en place une persistance de données dans une application Android. Cette librairie brille par son efficacité, sa simplicité et son système de mise en cache.
+
+- Simple. Elle se base sur des annotations.
+- (Relativement) Riche. Elle offre des mécanismes de migration, est bien documentée, force à découper son code…
+
 
 
 # Taches effectués
