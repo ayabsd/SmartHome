@@ -19,14 +19,13 @@ class HeaterViewHolder(itemView: View) : BaseViewHolder<Device.Heater>(itemView)
             OFF -> itemView.state_switch_heater.isChecked = false
         }
         itemView.delete_bt_heater.setOnClickListener {
-            listener.onButtonDeleteClick(device = device , position = position)
+            listener.onButtonDeleteClick(device = device, position = position)
 
         }
         itemView.setOnClickListener {
-            listener.onDeviceClick(device , view = itemView)
+            listener.onDeviceClick(device, view = itemView)
 
         }
-
 
 
     }

@@ -16,7 +16,7 @@ class RollerShutterViewHolder(itemView: View) : BaseViewHolder<Device.RollerShut
 
         }
         itemView.setOnClickListener {
-            listener.onDeviceClick(device , view = itemView)
+            listener.onDeviceClick(device, view = itemView)
 
         }
 

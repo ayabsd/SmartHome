@@ -20,8 +20,8 @@ class DetailsDeviceHeaterFragment : Fragment() {
     private val viewModel: DetailsDeviceHeaterViewModel by viewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         binding = DetailsDeviceHeaterFragmentBinding.inflate(inflater, container, false)
         return binding.root
@@ -35,7 +35,7 @@ class DetailsDeviceHeaterFragment : Fragment() {
 
     private fun getDevice() {
         device =
-            DetailsDeviceHeaterFragmentArgs.fromBundle(requireArguments()).argFromDeviceListFragment as Device.Heater
+                DetailsDeviceHeaterFragmentArgs.fromBundle(requireArguments()).argFromDeviceListFragment as Device.Heater
 
     }
 
@@ -46,7 +46,7 @@ class DetailsDeviceHeaterFragment : Fragment() {
         binding.deviceTemperatureTv.text = device.temperature.toFloat().toString()
         binding.deviceTemperature.addOnChangeListener { slider, value, fromUser ->
             binding.deviceTemperatureTv.text =
-                value.toBigDecimal().setScale(1, RoundingMode.UP).toDouble().toString()
+                    value.toBigDecimal().setScale(1, RoundingMode.UP).toDouble().toString()
         }
 
 

@@ -5,8 +5,8 @@ import javax.inject.Inject
 
 
 class RemoteDataSource @Inject constructor(
-    private val service: ApiService
-): BaseDataSource() {
+        private val service: ApiService
+) : BaseDataSource() {
 
     suspend fun getAllDevices() = getResult { service.getDevices() }
 

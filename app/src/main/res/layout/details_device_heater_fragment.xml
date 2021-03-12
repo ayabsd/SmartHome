@@ -29,9 +29,9 @@
                 android:id="@+id/device_temperature"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:stepSize="0.5"
                 android:valueFrom="7.0"
                 android:valueTo="28.0"
-                android:stepSize="0.5"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/device_name_tv" />

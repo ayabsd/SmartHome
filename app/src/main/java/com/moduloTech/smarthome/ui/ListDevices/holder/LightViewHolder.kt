@@ -27,7 +27,6 @@ class LightViewHolder(itemView: View) : BaseViewHolder<Device.Light>(itemView) {
         }
 
 
-
     }
 
 

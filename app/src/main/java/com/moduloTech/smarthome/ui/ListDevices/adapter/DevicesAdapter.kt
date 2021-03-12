@@ -17,11 +17,11 @@ import com.moduloTech.smarthome.utils.TYPE_ROLLER
 
 interface OnClickListenner {
     fun onButtonDeleteClick(device: Device?, position: Int)
-    fun onDeviceClick(device: Device? , view : View)
+    fun onDeviceClick(device: Device?, view: View)
 }
 
 class DevicesAdapter :
-    RecyclerView.Adapter<BaseViewHolder<*>>() {
+        RecyclerView.Adapter<BaseViewHolder<*>>() {
     private var devices = ArrayList<Device>()
     private var filtredArray = ArrayList<Device>()
     private var filterType: String = TYPE_ALL
@@ -39,23 +39,23 @@ class DevicesAdapter :
         return when (viewType) {
             HOLDER_TYPE_LIGHT_ -> {
                 val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_device_light, parent, false)
+                        .inflate(R.layout.item_device_light, parent, false)
                 LightViewHolder(
-                    view
+                        view
                 )
             }
             HOLDER_TYPE_Heater -> {
                 val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_device_heater, parent, false)
+                        .inflate(R.layout.item_device_heater, parent, false)
                 HeaterViewHolder(
-                    view
+                        view
                 )
             }
             HOLDER_TYPE_ROLLER -> {
                 val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_device_roller, parent, false)
+                        .inflate(R.layout.item_device_roller, parent, false)
                 RollerShutterViewHolder(
-                    view
+                        view
                 )
             }
             else -> throw IllegalArgumentException("Invalid view type")
@@ -116,9 +116,9 @@ class DevicesAdapter :
             is LightViewHolder -> holder.bind(element as Device.Light, listener, position)
             is HeaterViewHolder -> holder.bind(element as Device.Heater, listener, position)
             is RollerShutterViewHolder -> holder.bind(
-                element as Device.RollerShutter,
-                listener,
-                position
+                    element as Device.RollerShutter,
+                    listener,
+                    position
             )
             else -> throw IllegalArgumentException()
         }

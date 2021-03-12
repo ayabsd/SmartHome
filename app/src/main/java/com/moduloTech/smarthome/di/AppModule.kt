@@ -24,10 +24,10 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(gson: Gson) : Retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create(gson))
-        .build()
+    fun provideRetrofit(gson: Gson): Retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .build()
 
     @Provides
     fun provideGson(): Gson = GsonBuilder().create()
@@ -51,9 +51,7 @@ object AppModule {
     @Provides
     fun provideRepository(remoteDataSource: RemoteDataSource,
                           localDataSource: Dao) =
-        DeviceRespository(remoteDataSource, localDataSource)
-
-
+            DeviceRespository(remoteDataSource, localDataSource)
 
 
 }

@@ -20,8 +20,8 @@ class DetailsDeviceLightFragment : Fragment() {
     private val viewModel: DetailsDeviceLightViewModel by viewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         binding = DetailsDeviceLightFragmentBinding.inflate(inflater, container, false)
         return binding.root
@@ -36,16 +36,16 @@ class DetailsDeviceLightFragment : Fragment() {
 
     private fun getDevice() {
         device =
-            DetailsDeviceLightFragmentArgs.fromBundle(requireArguments()).argFromDeviceListFragment as Device.Light
+                DetailsDeviceLightFragmentArgs.fromBundle(requireArguments()).argFromDeviceListFragment as Device.Light
     }
 
     private fun initView() {
-            binding.switchLight.isChecked = device.mode == ON
-            binding.deviceNameTv.text = device.name
-            binding.deviceLightSilder.value = device.intensity.toFloat()
-            binding.deviceIntensityTv.text = device.intensity.toFloat().toString()
-            binding.deviceLightSilder.addOnChangeListener { slider, value, fromUser ->
-                binding.deviceIntensityTv.text =
+        binding.switchLight.isChecked = device.mode == ON
+        binding.deviceNameTv.text = device.name
+        binding.deviceLightSilder.value = device.intensity.toFloat()
+        binding.deviceIntensityTv.text = device.intensity.toFloat().toString()
+        binding.deviceLightSilder.addOnChangeListener { slider, value, fromUser ->
+            binding.deviceIntensityTv.text =
                     value.toBigDecimal().setScale(1, RoundingMode.UP).toDouble().toString()
 
 
@@ -58,7 +58,7 @@ class DetailsDeviceLightFragment : Fragment() {
             false -> OFF
         }
         val silderLightvalue =
-            binding.deviceLightSilder.value.toBigDecimal().setScale(1, RoundingMode.UP).toDouble()
+                binding.deviceLightSilder.value.toBigDecimal().setScale(1, RoundingMode.UP).toDouble()
         viewModel.updateDeviceLight(device.id, silderLightvalue, stateSwitch)
         super.onPause()
     }

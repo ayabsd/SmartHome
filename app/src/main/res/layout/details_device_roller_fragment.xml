@@ -9,8 +9,7 @@
 
     <com.google.android.material.card.MaterialCardView
         style="@style/Theme.SmartHome.card.details"
-        app:cardBackgroundColor="@color/red_clear"
-       >
+        app:cardBackgroundColor="@color/red_clear">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

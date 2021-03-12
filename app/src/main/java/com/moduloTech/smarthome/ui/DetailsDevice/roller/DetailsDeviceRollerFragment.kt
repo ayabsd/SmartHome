@@ -17,8 +17,8 @@ class DetailsDeviceRollerFragment : Fragment() {
     private lateinit var device: Device.RollerShutter
     private val viewModel: DetailsDeviceRollerViewModel by viewModels()
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         binding = DetailsDeviceRollerFragmentBinding.inflate(inflater, container, false)
         return binding.root
@@ -33,17 +33,17 @@ class DetailsDeviceRollerFragment : Fragment() {
     /*Get selected device From DeviceListFragment  */
     private fun getDevice() {
         device =
-            DetailsDeviceRollerFragmentArgs.fromBundle(requireArguments()).argFromDeviceListFragment as Device.RollerShutter
+                DetailsDeviceRollerFragmentArgs.fromBundle(requireArguments()).argFromDeviceListFragment as Device.RollerShutter
 
     }
 
     /*This initView and display device data */
     private fun intView() {
-            binding.deviceNameTv.text = device.name
-            binding.deviceRollerValue.value = device.position.toFloat()
-            binding.rollerPositionTv.text = device.position
-            binding.deviceRollerValue.addOnChangeListener { slider, value, fromUser ->
-                binding.rollerPositionTv.text =
+        binding.deviceNameTv.text = device.name
+        binding.deviceRollerValue.value = device.position.toFloat()
+        binding.rollerPositionTv.text = device.position
+        binding.deviceRollerValue.addOnChangeListener { slider, value, fromUser ->
+            binding.rollerPositionTv.text =
                     value.toBigDecimal().setScale(1, RoundingMode.UP).toDouble().toString()
 
 
@@ -58,7 +58,7 @@ class DetailsDeviceRollerFragment : Fragment() {
     /* Update deviceRoller data in my local data base  */
     private fun onSaveChanges() {
         val sildertvalue =
-            binding.deviceRollerValue.value.toBigDecimal().setScale(1, RoundingMode.UP).toDouble()
+                binding.deviceRollerValue.value.toBigDecimal().setScale(1, RoundingMode.UP).toDouble()
         viewModel.updateDeviceRoller(device.id, sildertvalue)
 
     }

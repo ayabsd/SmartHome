@@ -31,7 +31,7 @@ class UITest {
     @Test
     fun test_isListFragmentVisible_onAppLaunch() {
         Espresso.onView(ViewMatchers.withId(R.id.device_rv))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 
     @Test
@@ -41,18 +41,18 @@ class UITest {
         Espresso.onView(ViewMatchers.withId(R.id.device_rv)).perform(ViewActions.swipeUp())
 
         Espresso.onView(ViewMatchers.withId(R.id.device_rv))
-            .perform(
-                RecyclerViewActions.actionOnItemAtPosition<LightViewHolder>(
-                    5,
-                    ViewActions.click()
-                )
+                .perform(
+                        RecyclerViewActions.actionOnItemAtPosition<LightViewHolder>(
+                                5,
+                                ViewActions.click()
+                        )
 
-            )
+                )
 
         Espresso.onView(ViewMatchers.withId(R.id.device_light_silder)).perform(setValue(2.0F))
         Espresso.onView(ViewMatchers.withId(R.id.device_light_silder)).perform(setValue(10.0F))
         Espresso.onView(ViewMatchers.withId(R.id.device_light_silder))
-            .check(ViewAssertions.matches(withValue(10.0F)))
+                .check(ViewAssertions.matches(withValue(10.0F)))
 
 
     }

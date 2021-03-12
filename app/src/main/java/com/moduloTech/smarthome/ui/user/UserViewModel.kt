@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 
 class UserViewModel @ViewModelInject constructor(
-    private var repository: DeviceRespository
+        private var repository: DeviceRespository
 ) : ViewModel() {
 
     val user = repository.getUserFromLocal()

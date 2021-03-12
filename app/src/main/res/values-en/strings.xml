@@ -17,7 +17,7 @@
     <string name="app_roller" translatable="true">Roller Shutter</string>
     <string name="app_heater" translatable="true">Heater</string>
     <string name="app_user_upated" translatable="true">your profile successfully modified</string>
-    <string name="app_user_not_upated"  translatable="true" > Modification error</string>
+    <string name="app_user_not_upated" translatable="true"> Modification error</string>
 
 
 </resources>

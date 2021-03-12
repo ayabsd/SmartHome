@@ -1,6 +1,6 @@
 package com.moduloTech.smarthome.data.model.api.response
 
-data class ApiAdress (
+data class ApiAdress(
         val city: String,
         val street: String,
         val streetCode: String,

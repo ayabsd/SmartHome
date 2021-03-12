@@ -31,8 +31,8 @@ class ListDevicesFragment : Fragment(), OnClickListenner {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         binding = FragmentListDevicesBinding.inflate(inflater, container, false)
         return binding.root
@@ -66,7 +66,7 @@ class ListDevicesFragment : Fragment(), OnClickListenner {
             R.id.all_action -> adapter.filterWithType(TYPE_ALL)
             R.id.action_profile -> view?.let {
                 Navigation.findNavController(it).navigate(
-                    ListDevicesFragmentDirections.actionToProfileFragment()
+                        ListDevicesFragmentDirections.actionToProfileFragment()
                 )
             }
         }
@@ -86,15 +86,15 @@ class ListDevicesFragment : Fragment(), OnClickListenner {
     override fun onDeviceClick(device: Device?, view: View) {
         when (device) {
             is Device.Light -> Navigation.findNavController(view).navigate(
-                ListDevicesFragmentDirections.actionToLightDevice(device)
+                    ListDevicesFragmentDirections.actionToLightDevice(device)
             )
 
             is Device.RollerShutter -> Navigation.findNavController(view).navigate(
-                ListDevicesFragmentDirections
-                    .actionToRollerDevice(device)
+                    ListDevicesFragmentDirections
+                            .actionToRollerDevice(device)
             )
             is Device.Heater -> Navigation.findNavController(view).navigate(
-                ListDevicesFragmentDirections.actionToHeaterDevice(device)
+                    ListDevicesFragmentDirections.actionToHeaterDevice(device)
             )
             else -> throw IllegalArgumentException()
         }
@@ -108,7 +108,7 @@ class ListDevicesFragment : Fragment(), OnClickListenner {
                     binding.progress.visibility = View.GONE
                     if (!it.data.isNullOrEmpty()) {
                         adapter.filterDevices(
-                            adapter.getFilterType(), ArrayList(convertResponse(it.data))
+                                adapter.getFilterType(), ArrayList(convertResponse(it.data))
                         )
                     }
                 }

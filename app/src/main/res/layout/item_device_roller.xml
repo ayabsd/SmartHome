@@ -13,10 +13,11 @@
             android:id="@+id/delete_bt_roller"
             style="@style/Theme.SmartHome.btn_close"
             android:background="@color/red_clear"
+            android:contentDescription="@null"
             android:src="@android:drawable/ic_menu_close_clear_cancel"
             app:layout_constraintBottom_toTopOf="@id/device_name_tv"
             app:layout_constraintRight_toRightOf="parent"
-            android:contentDescription="@null"            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/device_name_tv"
@@ -31,10 +32,10 @@
             android:id="@+id/device_position_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:enabled="false"
             android:theme="@style/Theme.SmartHome.Text.content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:enabled="false"
             app:layout_constraintTop_toBottomOf="@id/device_name_tv" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

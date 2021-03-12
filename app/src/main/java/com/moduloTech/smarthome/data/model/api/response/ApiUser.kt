@@ -5,6 +5,6 @@ data class ApiUser(
         val firstName: String,
         val lastName: String,
         val birthDate: String,
-        var address :ApiAdress,
+        var address: ApiAdress,
 
-)
+        )

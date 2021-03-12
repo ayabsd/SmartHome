@@ -10,8 +10,8 @@ import com.moduloTech.smarthome.utils.performLocalOperation
 import javax.inject.Inject
 
 class DeviceRespository @Inject constructor(
-    private val remoteDataSource: RemoteDataSource,
-    private val localDataSource: Dao
+        private val remoteDataSource: RemoteDataSource,
+        private val localDataSource: Dao
 
 ) {
 
@@ -21,28 +21,28 @@ class DeviceRespository @Inject constructor(
     }
 
     private fun getDevicesFromServer() = performGetOperation(
-        databaseQuery = { localDataSource.getAlldevicesOrderedByType() },
-        networkCall = { remoteDataSource.getAllDevices() },
-        saveCallResult = {
-            localDataSource.insertAllDevices(it.devices)
-            localDataSource.insertUser(User(it.user.firstName, it.user.lastName, it.user.birthDate))
-            localDataSource.insertUserAdress(
-                Adress(
-                    it.user.address.city,
-                    it.user.address.street,
-                    it.user.address.streetCode,
-                    it.user.address.postalCode,
-                    it.user.address.country
+            databaseQuery = { localDataSource.getAlldevicesOrderedByType() },
+            networkCall = { remoteDataSource.getAllDevices() },
+            saveCallResult = {
+                localDataSource.insertAllDevices(it.devices)
+                localDataSource.insertUser(User(it.user.firstName, it.user.lastName, it.user.birthDate))
+                localDataSource.insertUserAdress(
+                        Adress(
+                                it.user.address.city,
+                                it.user.address.street,
+                                it.user.address.streetCode,
+                                it.user.address.postalCode,
+                                it.user.address.country
+                        )
                 )
-            )
 
-        }
+            }
 
 
     )
 
     private fun getDevicesFromLocal() = performLocalOperation(
-        databaseQuery = { localDataSource.getAlldevicesOrderedByType() }
+            databaseQuery = { localDataSource.getAlldevicesOrderedByType() }
     )
 
     fun deleteDevice(device: Device) {

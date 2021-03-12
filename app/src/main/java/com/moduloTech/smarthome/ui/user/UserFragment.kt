@@ -29,8 +29,8 @@ class UserFragment : Fragment(), View.OnClickListener {
     private lateinit var viewModel: UserViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.user_fragment, container, false)
     }
@@ -77,14 +77,14 @@ class UserFragment : Fragment(), View.OnClickListener {
             val mMonth = mCurrentDate[Calendar.MONTH]
             val mDay = mCurrentDate[Calendar.DAY_OF_MONTH]
             val mDatePicker =
-                DatePickerDialog(
-                    requireContext(), R.style.DatePickerDialog,
-                    OnDateSetListener { datePicker_, selectedYear, selectedMonth, selectedDay ->
+                    DatePickerDialog(
+                            requireContext(), R.style.DatePickerDialog,
+                            OnDateSetListener { datePicker_, selectedYear, selectedMonth, selectedDay ->
 
-                        birth_date_tv.setText("$selectedDay/$selectedMonth/$selectedYear")
+                                birth_date_tv.setText("$selectedDay/$selectedMonth/$selectedYear")
 
-                    }, mYear, mMonth, mDay
-                )
+                            }, mYear, mMonth, mDay
+                    )
 
             mDatePicker.show()
         }
@@ -109,26 +109,26 @@ class UserFragment : Fragment(), View.OnClickListener {
 
     private fun validateUpdate() {
         val user = User(
-            firstName = first_name_tv.text.toString(),
-            lastName = last_name_tv.text.toString(),
-            birthDate = convertDateToLong(birth_date_tv.text.toString()).toString()
+                firstName = first_name_tv.text.toString(),
+                lastName = last_name_tv.text.toString(),
+                birthDate = convertDateToLong(birth_date_tv.text.toString()).toString()
         )
         val adress = Adress(
-            city_tv.text.toString(),
-            street_tv.text.toString(),
-            code_street_tv.text.toString(),
-            code_city_tv.text.toString(),
-            contry_tv.text.toString()
+                city_tv.text.toString(),
+                street_tv.text.toString(),
+                code_street_tv.text.toString(),
+                code_city_tv.text.toString(),
+                contry_tv.text.toString()
         )
         viewModel.updateUserAdress(user, adress)
     }
 
     override fun onClick(p0: View?) {
         if (!city_tv.text.isNullOrEmpty() && !street_tv.text.isNullOrEmpty()
-            && !code_street_tv.text.isNullOrEmpty() && !code_city_tv.text.isNullOrEmpty()
-            && !contry_tv.text.isNullOrEmpty() && !first_name_tv.text.isNullOrEmpty()
-            && !last_name_tv.text.isNullOrEmpty()
-            && !birth_date_tv.text.isNullOrEmpty()
+                && !code_street_tv.text.isNullOrEmpty() && !code_city_tv.text.isNullOrEmpty()
+                && !contry_tv.text.isNullOrEmpty() && !first_name_tv.text.isNullOrEmpty()
+                && !last_name_tv.text.isNullOrEmpty()
+                && !birth_date_tv.text.isNullOrEmpty()
         ) validateUpdate()
     }
 

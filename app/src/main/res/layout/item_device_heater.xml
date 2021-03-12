@@ -14,9 +14,9 @@
             android:id="@+id/delete_bt_heater"
             style="@style/Theme.SmartHome.btn_close"
             android:background="@color/yellow_clear"
+            android:contentDescription="@null"
             app:layout_constraintBottom_toTopOf="@id/device_name_tv"
             app:layout_constraintRight_toRightOf="parent"
-            android:contentDescription="@null"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -43,9 +43,9 @@
             android:id="@+id/state_switch_heater"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:enabled="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:enabled="false"
             app:layout_constraintTop_toBottomOf="@id/device_temperature_tv" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
