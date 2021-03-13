@@ -7,10 +7,7 @@
 
 
 SmartHome est une application qui permet de paramétrer des composants comme la lumière , des volets roulants ou des radiateurs.
-Model: Notre M (modèle) dans MVVM. Où j’ai effectué des opérations de données.
-di: Injection de dépendances avec l'aide de Hilt.
-ui : Nos Fragments et ViewModels aidant à afficher des données à l'utilisateur.
-utils : classes et fonctions d'assistance.
+.
 
 
 ## Architecture de projet 
